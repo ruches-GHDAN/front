@@ -1,9 +1,26 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
+import { MultipleTransLoaderHttp } from './MultipleTransLoaderHttp'
+import { provideRouter } from '@angular/router'
+import { routes } from './app.routes'
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+export function createTranslateLoader(http: HttpClient): MultipleTransLoaderHttp {
+  return new MultipleTransLoaderHttp(http)
+}
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
-};
+  providers: [
+  provideHttpClient(withInterceptorsFromDi()),
+  importProvidersFrom([
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      }
+    })
+  ]),
+  provideRouter(routes)
+  ]
+}
