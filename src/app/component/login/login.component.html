@@ -1,8 +1,29 @@
 <div class="login-container">
   <div class="login-logo-container">
-    <img src="https://adoption.royalcanin.com/fr/app/uploads/Cream_Sable_Orange_Pomeranian_Spitz_Adult_Med._Res.___Basic.jpg" alt="logo">
+    <img src="assets/img/logo-black.png" alt="logo">
   </div>
-  <div>
-    {{ 'login.title' | translate }}
-  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+    <div>
+      <h3>{{ 'login.title' | translate }}</h3>
+    </div>
+    <div class="login-form-fields">
+      <mat-form-field class="example-form-field">
+        <mat-label>{{ 'login.labels.email' | translate }}</mat-label>
+        <input matInput type="text" formControlName="email" style="background-color: transparent;">
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>{{ 'login.labels.password' | translate }}</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+    </div>
+    <div class="login-form-buttons">
+      <button class="login" mat-flat-button  type="submit" [disabled]="loginForm.invalid">
+        <p>{{ 'login.buttons.login' | translate }}</p>
+      </button>
+      <p>{{ 'login.labels.register' | translate }}
+          <a [routerLink]="'/register'">{{ 'login.buttons.register' | translate }}</a>
+      </p>
+    </div>
+  </form>
 </div>
