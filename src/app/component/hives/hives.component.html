@@ -1,0 +1,43 @@
+<div class="hives-container">
+  <div class="header">
+    <h1>Ruches</h1>
+    <button class="add-hive-btn">Ajouter une ruche</button>
+  </div>
+
+  <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une ruche" class="search-bar">
+
+  <table class="hives-table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Rucher</th>
+      <th>Date d'installation</th>
+      <th>Taille</th>
+      <th>Race</th>
+      <th>Maladie</th>
+      <th>Goût</th>
+      <th>Année de la Reine</th>
+      <th>Statut</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (hive of filteredHives; track hive) {
+        <tr>
+          <td>{{ hive.name }}</td>
+          <td>{{ hive.apiary }}</td>
+          <td>{{ hive.installationDate }}</td>
+          <td>{{ hive.size }}</td>
+          <td>{{ hive.race }}</td>
+          <td>{{ hive.disease }}</td>
+          <td>{{ hive.taste }}</td>
+          <td>{{ hive.queenYear }}</td>
+          <td>
+            <button [class.active]="hive.status === 'Production'" [class.inactive]="hive.status !== 'Production'">
+              {{ hive.status }}
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
