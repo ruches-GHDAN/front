@@ -3,12 +3,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { MultipleTransLoaderHttp } from './MultipleTransLoaderHttp';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, NgIf],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
