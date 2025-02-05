@@ -1,0 +1,27 @@
+<div class="navbar">
+  <div class="logo" (click)="navigateToDashboard()">
+    <img src="assets/img/logoBlackTypo.png" alt="HiveBeille Logo" style="cursor: pointer;">
+  </div>
+  <nav>
+    <ul>
+      <li class="active">
+        <mat-icon>home</mat-icon>
+        <span>Tableau de bord</span>
+      </li>
+      <li>
+        <mat-icon>grid_view</mat-icon>
+        <span>Ruches</span>
+      </li>
+      <li>
+        <mat-icon>location_on</mat-icon>
+        <span>Ruchers</span>
+      </li>
+    </ul>
+  </nav>
+  <div class="logout">
+    <button mat-flat-button>
+      <mat-icon>logout</mat-icon>
+      <span (click)="logout()">Se déconnecter</span>
+    </button>
+  </div>
+</div>
