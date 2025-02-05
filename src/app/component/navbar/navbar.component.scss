@@ -1,0 +1,88 @@
+.navbar {
+  width: 15%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130%;
+  margin-top: 1rem;
+}
+
+.logo img {
+  width: 80%;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 90%;
+  justify-content: flex-start;
+  border: 2px solid #f0f0f0;
+}
+
+nav li.active {
+  background-color: #FBBC05;
+  border: 2px solid #FBBC05;
+  color: black;
+}
+
+nav li:hover{
+  border: 2px solid #FBBC05;
+}
+
+nav li mat-icon {
+  margin-right: 0.5rem;
+}
+
+.logout {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.logout button {
+  background-color: #FBBC05;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  margin-bottom: 10%;
+  width: 80%;
+}
+
+.logout mat-icon {
+  margin-right: 0.5rem;
+}

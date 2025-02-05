@@ -1,10 +1,11 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { appConfig } from './app/app.config'
+import { appConfig } from './app/app.config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 
 bootstrapApplication(AppComponent, {
   providers: [
-    appConfig.providers
+    appConfig.providers, provideAnimationsAsync()
   ]
 }).then(() => {
   console.log('Application is running');
