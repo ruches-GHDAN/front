@@ -1,5 +1,5 @@
 <mat-drawer-container class="container" [hasBackdrop]="false">
-  <mat-drawer class="navbar" [opened]="true" mode="side">
+  <mat-drawer class="navbar" [opened]="!isActiveRouteAuthentication()" mode="side">
     <div class="navbar-content">
       <div class="logo" (click)="navigateToDashboard()">
         <img src="assets/img/logoBlackTypo.png" alt="HiveBeille Logo" style="cursor: pointer;">

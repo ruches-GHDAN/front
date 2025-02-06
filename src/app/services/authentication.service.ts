@@ -25,6 +25,7 @@ export class AuthenticationService {
     localStorage.setItem(this.constants.CURRENT_USER_KEY, JSON.stringify(response.user))
     localStorage.setItem(this.constants.TOKEN_KEY, response.access_token)
   }
+
   public logout(): void {
     localStorage.removeItem(this.constants.TOKEN_KEY)
     localStorage.removeItem(this.constants.CURRENT_USER_KEY)

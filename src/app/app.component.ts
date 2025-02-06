@@ -12,24 +12,24 @@ import {NavbarComponent} from './component/navbar/navbar.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public selectedLanguage: string;
-  public showNavbar = true;
+  public selectedLanguage: string
+  public showNavbar = true
 
   constructor(
     private translateService: MultipleTransLoaderHttp,
     private translate: TranslateService,
     private router: Router
   ) {
-    this.selectedLanguage = this.translateService.getLang() || 'fr';
-    this.translateService.setLang(this.selectedLanguage);
-    this.translate.use(this.selectedLanguage);
+    this.selectedLanguage = this.translateService.getLang() || 'fr'
+    this.translateService.setLang(this.selectedLanguage)
+    this.translate.use(this.selectedLanguage)
   }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showNavbar = !['/login', '/register'].includes(event.urlAfterRedirects);
+        this.showNavbar = !['/login', '/register'].includes(event.urlAfterRedirects)
       }
-    });
+    })
   }
 }
