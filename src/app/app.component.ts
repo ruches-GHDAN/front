@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {MultipleTransLoaderHttp} from './MultipleTransLoaderHttp';
 import {NavbarComponent} from './component/navbar/navbar.component';
