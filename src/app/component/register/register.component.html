@@ -54,8 +54,12 @@
     </mat-stepper>
   </div>
   <div class="register-buttons">
-    <button class="register" mat-flat-button type="submit" [disabled]="secondFormGroup.invalid">
-      <p>{{ 'register.buttons.register' | translate }}</p>
+    <button class="register" mat-flat-button (click)="register()" [disabled]="secondFormGroup.invalid">
+      @if (isLoading) {
+        <app-loader></app-loader>
+      } @else {
+        <p>{{ 'register.buttons.register' | translate }}</p>
+      }
     </button>
     <p>{{ 'register.labels.login' | translate }}
       <a [routerLink]="'/login'">{{ 'register.buttons.login' | translate }}</a>
