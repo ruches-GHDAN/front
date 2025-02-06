@@ -1,0 +1,10 @@
+{
+  "hives": {
+    "labels": {
+      "warnings": "Warnings",
+      "size": "Size (number of bees)",
+      "temperature": "Temperature",
+      "history": "History"
+    }
+  }
+}

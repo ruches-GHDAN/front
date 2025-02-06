@@ -9,7 +9,7 @@ import { Constants } from '../Constants'
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private baseUrl: string = environment.apiUrl + '/api'
+  private baseUrl: string = environment.apiUrl + '/auth'
   constructor(private http: HttpClient,
               private readonly constants: Constants) {}
 
@@ -29,6 +29,10 @@ export class AuthenticationService {
   public logout(): void {
     localStorage.removeItem(this.constants.TOKEN_KEY)
     localStorage.removeItem(this.constants.CURRENT_USER_KEY)
+  }
+
+  public isAuthenticated(): boolean {
+    return localStorage.getItem(this.constants.TOKEN_KEY) !== null && localStorage.getItem(this.constants.CURRENT_USER_KEY) !== null
   }
 
   public getCurrentUser(): CurrentUser | null {

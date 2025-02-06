@@ -6,6 +6,8 @@
   --primary-white: #F0F0F0;
   --primary-grey: #a1a1a1;
   --primary-black: #191000;
+
+  --mat-sys-background: var(--primary-white);
 }
 
 body {
@@ -38,4 +40,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     supporting-text-color: var(--primary-black),
     button-color: var(--primary-yellow)
   ));
+}
+
+mat-drawer-content {
+  min-width: 80% !important;
+}
+
+.mdc-slider__thumb-knob {
+  border-radius: 50% 50% 0% 100% / 100% 100% 0% 0% !important;
 }
