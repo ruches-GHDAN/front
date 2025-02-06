@@ -1,13 +1,17 @@
 .dashboard-data-container {
-  margin-top: 5em;
-  width: 60%;
+  margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
 }
 
+.dashboard-card {
+  height: 95px;
+  width: 100%;
+}
+
 .dashboard-card-header {
   display: block;
-  padding-top: 0em;
+  padding-top: 0;
 }
 
 .dashboard-card-title {
@@ -16,14 +20,18 @@
 }
 
 .dashboard-card-data {
-  margin-block-start: 0em;
+  margin-block-start: 0;
   font-size: 2em;
   font-weight: bold;
   text-align: center;
 }
 
+.dashboard-card-apiaries {
+  margin-left: 1em;
+  margin-right: 1em
+}
+
 .map-container {
-  margin-top: 5em;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100%;
+  width: 100%;
 }
