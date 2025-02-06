@@ -1,5 +1,14 @@
 {
   "login": {
-    "title": "Se connecter"
+    "title": "Se connecter",
+    "labels": {
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "register": "Pas encore de compte ?"
+    },
+    "buttons": {
+      "login": "Se connecter",
+      "register": "S'inscrire"
+    }
   }
 }

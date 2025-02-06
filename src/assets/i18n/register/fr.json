@@ -1,5 +1,21 @@
 {
   "register": {
-    "title": "S'enregistrer"
+    "title": "Créer un compte",
+    "labels": {
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "login": "Déjà un compte ?",
+      "fillName": "Renseignez votre nom",
+      "fillLogin": "Renseignez vos identifiants"
+    },
+    "buttons": {
+      "register": "Créer un compte",
+      "login": "Se connecter",
+      "next": "Suiv.",
+      "previous": "Préc."
+    }
   }
 }

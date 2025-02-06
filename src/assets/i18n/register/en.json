@@ -1,5 +1,21 @@
 {
   "register": {
-    "title": "Register"
+    "title": "Register",
+    "labels": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "firstName": "Firstname",
+      "lastName": "Lastname",
+      "login": "Already have an account?",
+      "fillName": "Fill in your name",
+      "fillLogin": "Fill in your credentials"
+    },
+    "buttons": {
+      "register": "Register",
+      "login": "Login",
+      "next": "Next",
+      "previous": "Back"
+    }
   }
 }
