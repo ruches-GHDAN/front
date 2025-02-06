@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterOutlet} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
+import {MatDrawer, MatDrawerContainer} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,10 @@ import {MatButton} from '@angular/material/button';
   templateUrl: './navbar.component.html',
   imports: [
     MatIcon,
-    MatButton
+    MatButton,
+    RouterOutlet,
+    MatDrawerContainer,
+    MatDrawer
   ],
   styleUrls: ['./navbar.component.scss']
 })
