@@ -1,0 +1,10 @@
+{
+  "hives": {
+    "labels": {
+      "warnings": "Alertes",
+      "size": "Taille (nombre d'abeille)",
+      "temperature": "Température",
+      "history": "Historique"
+    }
+  }
+}

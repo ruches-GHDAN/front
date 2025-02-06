@@ -9,7 +9,7 @@ import { Constants } from '../Constants'
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private baseUrl: string = environment.apiUrl + '/api'
+  private baseUrl: string = environment.apiUrl + '/auth'
   constructor(private http: HttpClient,
               private readonly constants: Constants) {}
 
