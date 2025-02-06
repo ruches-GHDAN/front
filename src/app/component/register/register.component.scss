@@ -1,0 +1,125 @@
+@use '@angular/material' as mat;
+
+:host {
+  --mat-sys-primary: var(--primary-yellow);
+  @include mat.stepper-overrides((
+    container-color: transparent,
+    line-color: var(--primary-yellow),
+  ));
+}
+
+.register-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-logo-container {
+  img {
+    margin-top: 4.5rem;
+    width: 12vw;
+  }
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 30vw;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: lighter;
+  }
+}
+
+.register-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.register-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  margin-top: 1.5rem;
+
+  button {
+    width: 100%;
+  }
+
+  p{
+    margin-top: 1.5rem;
+    color: var(--primary-grey);
+
+    a{
+      color: var(--primary-yellow);
+      text-decoration: none;
+
+      &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .register {
+    background-color: var(--primary-yellow);
+    color: white;
+    height: 4rem;
+    border-radius: 20px;
+
+    &:disabled {
+      background-color: var(--primary-yellow-disabled);
+    }
+
+    p{
+      color: var(--primary-white);
+      font-size: 20px;
+    }
+  }
+}
+
+.stepper-container {
+  border-radius: 20px;
+  min-height: fit-content;
+  height: fit-content;
+  width: 40vw;
+
+  mat-stepper {
+    height: 100%;
+  }
+
+  mat-step {
+    min-height: fit-content;
+  }
+
+  .stepper-first-group {
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stepper-second-group {
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .next-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+}
