@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { LeafletModule } from '@bluehalo/ngx-leaflet';
-import { icon, latLng, marker, tileLayer, Marker, featureGroup, LatLngBounds, FeatureGroup, TileLayer } from 'leaflet';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { LeafletDirective, LeafletModule } from '@bluehalo/ngx-leaflet';
+import { featureGroup, icon, latLng, LatLngBounds, marker, Marker, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-map',
@@ -11,8 +11,9 @@ import { icon, latLng, marker, tileLayer, Marker, featureGroup, LatLngBounds, Fe
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss'
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, AfterViewInit {
   @Input() mapData: { lat: number, lng: number }[] = [];
+  @ViewChild(LeafletDirective) leafletDirective!: LeafletDirective;
 
   defaultIcon = icon({
     iconSize: [ 25, 41 ],
@@ -28,6 +29,15 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.computeMapOptions();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const map = this.leafletDirective.getMap();
+      if (map) {
+        map.invalidateSize();
+      }
+    }, 1000);
   }
 
   computeMapOptions() {
