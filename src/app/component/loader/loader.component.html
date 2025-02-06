@@ -1,9 +1,5 @@
 <div class="loading-text">
-  <span>L</span>
-  <span>O</span>
-  <span>A</span>
-  <span>D</span>
-  <span>I</span>
-  <span>N</span>
-  <span>G</span>
+  @for (letter of loadingText; track letter) {
+    <span>{{letter}}</span>
+  }
 </div>

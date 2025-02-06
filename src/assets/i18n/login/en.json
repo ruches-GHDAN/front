@@ -1,6 +1,11 @@
 {
   "login": {
     "title": "Login",
+    "labels": {
+      "email": "Email address",
+      "password": "Password",
+      "register": "Don't have an account yet?"
+    },
     "buttons": {
       "login": "Login",
       "register": "Register"

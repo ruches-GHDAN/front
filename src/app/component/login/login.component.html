@@ -19,9 +19,9 @@
     </div>
     <div class="login-form-buttons">
       <button class="login" mat-flat-button  type="submit" [disabled]="loginForm.invalid">
-        @if (isLoading) {
+<!--        @if (isLoading) {-->
           <app-loader></app-loader>
-        } @else {<p>{{ 'login.buttons.login' | translate }}</p>}
+<!--        } @else {<p>{{ 'login.buttons.login' | translate }}</p>}-->
       </button>
       <p>{{ 'login.labels.register' | translate }}
         <a [routerLink]="'/register'">{{ 'login.buttons.register' | translate }}</a>

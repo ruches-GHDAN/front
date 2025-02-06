@@ -14,7 +14,7 @@
   }
 }
 
-@for $i from 1 through 7 {
+@for $i from 1 through 10 {
   .loading-text span:nth-child(#{$i}) {
     animation-delay: $i * 0.1s;
   }
