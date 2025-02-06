@@ -11,8 +11,6 @@ export class LoaderComponent {
   public loadingText: string = ''
 
   constructor(private translate: TranslateService) {
-    this.translate.get('loader.title').subscribe((result) => {
-      this.loadingText = result
-    })
+    this.loadingText = this.translate.instant('loader.title')
   }
 }
