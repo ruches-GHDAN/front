@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { TranslateModule, TranslatePipe } from '@ngx-translate/core'
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core'
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
@@ -9,6 +9,7 @@ import { LoaderComponent } from '../loader/loader.component'
 import { AuthenticationService } from '../../services/authentication.service'
 import { LoginResponse } from '../../models/Authentication.model'
 import { Constants } from '../../Constants'
+import { SnackBarService } from '../../services/SnackBar-service'
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,9 @@ export class LoginComponent {
 
   public constructor(public formBuilder: FormBuilder,
                      public router: Router,
-                     private readonly authenticationService: AuthenticationService) {
+                     private readonly authenticationService: AuthenticationService,
+                     private readonly snackBarService: SnackBarService,
+                     private readonly translateService: TranslateService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -41,12 +44,14 @@ export class LoginComponent {
         setTimeout(() => {
           this.authenticationService.setCurrentUser(response)
           this.router.navigate(['/'])
+          this.snackBarService.openInfoSnackBar(this.translateService.instant('snackBar.success.login'))
           this.isLoading = false
         }, 1000)
       },
       error: (error: any) => {
-        console.error('Error:', error)
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.login'))
         this.isLoading = false
+        console.error('Error:', error)
       }
     })
   }

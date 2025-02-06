@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
 import {MatDrawer, MatDrawerContainer} from '@angular/material/sidenav';
+import { AuthenticationService } from '../../services/authentication.service'
 
 @Component({
   selector: 'app-navbar',
@@ -18,14 +19,20 @@ import {MatDrawer, MatDrawerContainer} from '@angular/material/sidenav';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService) {}
 
   navigateToDashboard() {
     //this.router.navigate(['/dashboard']);
     console.log('Dashboard...');
   }
 
+  public isActiveRouteAuthentication(): boolean {
+    return this.router.url === '/login' || this.router.url === '/register';
+  }
+
   logout() {
-    console.log('Déconnexion...');
+    this.authenticationService.logout()
   }
 }

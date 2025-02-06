@@ -4,12 +4,13 @@ import { MatFormField, MatLabel } from '@angular/material/form-field'
 import { MatInput } from '@angular/material/input'
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious } from '@angular/material/stepper'
-import { TranslatePipe } from '@ngx-translate/core'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
 import { Router, RouterLink } from '@angular/router'
 import { LoaderComponent } from '../loader/loader.component'
 import { LoginResponse, RegisterRequest } from '../../models/Authentication.model'
 import { AuthenticationService } from '../../services/authentication.service'
 import { Constants } from '../../Constants'
+import { SnackBarService } from '../../services/SnackBar-service'
 
 @Component({
   selector: 'app-register',
@@ -39,7 +40,9 @@ export class RegisterComponent {
 
   public constructor(private _formBuilder: FormBuilder,
                      private readonly authenticationService: AuthenticationService,
-                     private readonly router: Router) {
+                     private readonly router: Router,
+                     private readonly snackBarService: SnackBarService,
+                     private readonly translateService: TranslateService) {
    this.firstFormGroup = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required]
@@ -66,12 +69,14 @@ export class RegisterComponent {
         setTimeout(() => {
           this.authenticationService.setCurrentUser(response)
           this.router.navigate(['/'])
+          this.snackBarService.openInfoSnackBar(this.translateService.instant('snackBar.success.register'))
           this.isLoading = false
         }, 1000)
       },
       error: (error: any) => {
-        console.error('Error:', error)
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.register'))
         this.isLoading = false
+        console.error('Error:', error)
       }
     })
   }
