@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationEnd,Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
 import {MatDrawer, MatDrawerContainer} from '@angular/material/sidenav';
@@ -14,7 +14,9 @@ import { AuthenticationService } from '../../services/authentication.service'
     MatButton,
     RouterOutlet,
     MatDrawerContainer,
-    MatDrawer
+    MatDrawer,
+    RouterLink,
+    RouterLinkActive
   ],
   styleUrls: ['./navbar.component.scss']
 })
