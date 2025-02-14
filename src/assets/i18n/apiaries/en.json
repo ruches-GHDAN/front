@@ -1,0 +1,15 @@
+{
+  "APIARIES": {
+    "TITLE": "Apiaries",
+    "SEARCH_PLACEHOLDER": "Search for an apiary",
+    "ADD_BUTTON": "Add an apiary",
+    "TABLE": {
+      "NAME": "Name",
+      "LOCATION": "Location",
+      "HIVES_COUNT": "Number of hives",
+      "HONEY_PRODUCED": "Honey produced",
+      "ACTIVE_HIVES": "Active hives",
+      "NO_RESULTS": "No apiary matches your search."
+    }
+  }
+}

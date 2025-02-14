@@ -1,0 +1,15 @@
+{
+  "APIARIES": {
+    "TITLE": "Ruchers",
+    "SEARCH_PLACEHOLDER": "Rechercher un rucher",
+    "ADD_BUTTON": "Ajouter un rucher",
+    "TABLE": {
+      "NAME": "Nom",
+      "LOCATION": "Localisation",
+      "HIVES_COUNT": "Nombre de ruches",
+      "HONEY_PRODUCED": "Miel produit",
+      "ACTIVE_HIVES": "Ruches actives",
+      "NO_RESULTS": "Aucun rucher ne correspond à votre recherche."
+    }
+  }
+}
