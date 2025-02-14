@@ -2,6 +2,7 @@ import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { MapComponent } from '../map/map.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,8 @@ import { MapComponent } from '../map/map.component';
     MatCardContent,
     MatGridList,
     MatGridTile,
-    MapComponent
+    MapComponent,
+    TranslatePipe
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -50,6 +52,10 @@ export class DashboardComponent {
     {
       lat: 47.00865295058318,
       lng: 5.378989638961729
+    },
+    {
+      lat: 47.003318747577616,
+      lng: 5.315922618131288
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "dashboard": {
+    "apiaries": {
+      "title": "Mes ruchers",
+      "feed": {
+        "alertsTitle": "Alerts",
+        "historyTitle": "History"
+      }
+    }
+  }
+}
