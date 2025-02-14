@@ -14,6 +14,16 @@ describe('MapComponent', () => {
 
     fixture = TestBed.createComponent(MapComponent);
     component = fixture.componentInstance;
+    component.mapData = [
+      {
+        lat: 46.98878785962237,
+        lng: 5.364643002313322
+      },
+      {
+        lat: 46.991311598616214,
+        lng: 5.3721625122334284
+      }
+    ]
     fixture.detectChanges();
   });
 

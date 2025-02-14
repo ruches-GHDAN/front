@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MockTranslateLoader } from '../../utils/MockTranslateLoader';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,7 +10,12 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent]
+      imports: [
+        DashboardComponent,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: MockTranslateLoader }
+        })
+      ]
     })
     .compileComponents();
 
