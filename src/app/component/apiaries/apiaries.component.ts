@@ -40,6 +40,7 @@ export class ApiariesComponent implements OnInit {
     this.apiaryService.getAllApiaries().subscribe({
       next: (apiaries) => {
         this.apiaries = apiaries
+        console.log('Apiaries', apiaries)
       },
       error: (error) => {
         this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getApiaries'))
