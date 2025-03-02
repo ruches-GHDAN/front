@@ -18,7 +18,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core'
     MatDrawerContainer,
     MatDrawer,
     RouterLink,
-    TranslatePipe,
+    TranslatePipe
   ],
   styleUrls: ['./navbar.component.scss']
 })
