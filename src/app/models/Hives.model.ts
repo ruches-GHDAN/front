@@ -10,6 +10,14 @@ export interface Hive {
   longitude: number
 }
 
+export interface HiveResponse {
+  apiary: {
+    id: number
+    name: string
+  }
+  hive: Hive
+}
+
 export interface HiveHistory {
   date: string
   title: string

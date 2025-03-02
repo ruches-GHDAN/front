@@ -16,6 +16,18 @@
     },
     "TOOLTIPS": {
       "SEEAPIARY": "Voir le rucher"
+    },
+    "DIALOG": {
+      "TITLE": "Ajouter un rucher",
+      "SUBTITLE": "Veuillez renseigner les informations suivantes pour ajouter un rucher.",
+      "NAME": "Nom du rucher",
+      "LAT": "Latitude",
+      "LONG": "Longitude",
+      "TEMP": "Température",
+      "BUTTONS": {
+        "NO": "Annuler",
+        "OK": "Enregistrer"
+      }
     }
   }
 }

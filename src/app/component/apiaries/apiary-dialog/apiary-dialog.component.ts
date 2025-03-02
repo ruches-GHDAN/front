@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MatButton } from '@angular/material/button'
 import { MatInput } from '@angular/material/input'
 import { ApiaryService } from '../../../services/apiary.service'
+import { TranslatePipe } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-apiary-dialog',
@@ -19,6 +20,7 @@ import { ApiaryService } from '../../../services/apiary.service'
     MatLabel,
     ReactiveFormsModule,
     MatDialogClose,
+    TranslatePipe,
   ],
   templateUrl: './apiary-dialog.component.html',
   styleUrl: './apiary-dialog.component.scss'
