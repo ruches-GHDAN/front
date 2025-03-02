@@ -5,7 +5,7 @@ import { MatButton } from '@angular/material/button';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import { AuthenticationService } from '../../services/authentication.service'
 import { SnackBarService } from '../../services/SnackBar-service'
-import { TranslateService } from '@ngx-translate/core'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +17,8 @@ import { TranslateService } from '@ngx-translate/core'
     RouterOutlet,
     MatDrawerContainer,
     MatDrawer,
-    RouterLink
+    RouterLink,
+    TranslatePipe,
   ],
   styleUrls: ['./navbar.component.scss']
 })

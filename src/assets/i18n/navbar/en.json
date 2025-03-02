@@ -1,0 +1,9 @@
+{
+  "navbar": {
+    "dashboard": "Dashboard",
+    "hives": "Hives",
+    "apiairies": "Apiaries",
+    "logout": "Logout",
+    "login": "Login"
+  }
+}

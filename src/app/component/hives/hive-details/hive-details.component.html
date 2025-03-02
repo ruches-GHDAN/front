@@ -1,7 +1,10 @@
 <div class="hive-details-container">
   <div class="hive-details-title-container">
     <h2>Ruche N°{{ hive.id }}</h2>
-    <button mat-flat-button class="hive-details-apiary-button">Salut c'est le rucher</button>
+    <button mat-flat-button class="hive-details-apiary-button"
+            routerLink="/apiaries" matTooltip="{{ 'hives.tootlips.goToApiary' | translate }}">
+	    Salut c'est le rucher
+    </button>
   </div>
 
   <div class="hive-details-main-infos-cards-container">
@@ -39,7 +42,7 @@
 		  <div class="hive-details-history-item-container">
 			  @for (history of hiveHistory; let i = $index; track history)
 			  {
-				  <div class="caca">
+				  <div class="hive-details-history-item-banner">
 					  <mat-icon>add</mat-icon>
 					  <div class="hive-details-history-item">
 						  <div class="title">

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, RouterLink } from '@angular/router'
 import { MatButton } from '@angular/material/button'
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card'
 import { Hive, HiveHistory } from '../../../models/Hives.model'
 import { TranslatePipe } from '@ngx-translate/core'
 import { DatePipe } from '@angular/common'
 import { MatIcon } from '@angular/material/icon'
+import { MatTooltip } from '@angular/material/tooltip'
 
 @Component({
   selector: 'app-hive-details',
@@ -18,6 +19,8 @@ import { MatIcon } from '@angular/material/icon'
     TranslatePipe,
     DatePipe,
     MatIcon,
+    RouterLink,
+    MatTooltip,
 
 
   ],
