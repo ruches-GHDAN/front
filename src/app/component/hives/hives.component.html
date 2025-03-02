@@ -27,27 +27,27 @@
             <td colspan="8" class="no-results">Aucune ruche ne correspond à votre recherche.</td>
           </tr>
         } @else {
-      @for (hive of filteredHives; track hive) {
-      <tr>
-        <td>{{ hive.name }}</td>
-        <td>{{ hive.apiary }}</td>
-        <td>{{ hive.installationDate }}</td>
-        <td>{{ hive.size }}</td>
-        <td>{{ hive.disease }}</td>
-        <td>{{ hive.queenYear }}</td>
-        <td>
-          <button [class.active]="hive.status === 'Production'" [class.inactive]="hive.status !== 'Production'">
-            {{ hive.status }}
-          </button>
-        </td>
-        <td>
-          <button [class.active]="hive.cleaning === 1" [class.inactive]="hive.cleaning === 0">
-            {{ hive.cleaning === 1 ? 'Oui' : 'Non' }}
-          </button>
-        </td>
-      </tr>
-      }
-      }
+          @for (hive of filteredHives; track hive) {
+            <tr matTooltip="{{ 'hives.tooltips.hive' | translate }}" routerLink="/hive/{{hive.id}}">
+              <td>{{ hive.name }}</td>
+              <td>{{ hive.apiary }}</td>
+              <td>{{ hive.installationDate }}</td>
+              <td>{{ hive.size }}</td>
+              <td>{{ hive.disease }}</td>
+              <td>{{ hive.queenYear }}</td>
+              <td>
+                <button [class.active]="hive.status === 'Production'" [class.inactive]="hive.status !== 'Production'">
+                  {{ hive.status }}
+                </button>
+              </td>
+              <td>
+                <button [class.active]="hive.cleaning === 1" [class.inactive]="hive.cleaning === 0">
+                  {{ hive.cleaning === 1 ? 'Oui' : 'Non' }}
+                </button>
+              </td>
+            </tr>
+          }
+        }
       </tbody>
     </table>
   </div>

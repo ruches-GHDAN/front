@@ -5,6 +5,9 @@
       "size": "Taille (nombre d'abeille)",
       "temperature": "Température",
       "history": "Historique"
+    },
+    "tooltips": {
+      "hive": "Afficher les details de cette ruche"
     }
   }
 }

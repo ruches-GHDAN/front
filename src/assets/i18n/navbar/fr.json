@@ -1,0 +1,9 @@
+{
+  "navbar": {
+    "dashboard": "Tableau de bord",
+    "hives": "Ruches",
+    "apiaries": "Ruchers",
+    "logout": "Se déconnecter",
+    "login": "Se connecter"
+  }
+}
