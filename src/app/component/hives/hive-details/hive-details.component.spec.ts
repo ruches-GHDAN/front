@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HivesComponent } from './hives.component';
+import { HiveDetailsComponent } from './hive-details.component';
 import { provideRouter } from '@angular/router';
-import { MockTranslateLoader } from '../../utils/MockTranslateLoarder';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MockTranslateLoader } from '../../../utils/MockTranslateLoarder';
 
-describe('HivesComponent', () => {
-  let component: HivesComponent;
-  let fixture: ComponentFixture<HivesComponent>;
+describe('HiveDetailsComponent', () => {
+  let component: HiveDetailsComponent;
+  let fixture: ComponentFixture<HiveDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        HivesComponent,
+        HiveDetailsComponent,
         TranslateModule.forRoot({
           loader: { provide: TranslateLoader, useClass: MockTranslateLoader }
         })
@@ -21,7 +21,7 @@ describe('HivesComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HivesComponent);
+    fixture = TestBed.createComponent(HiveDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,61 @@
+<div class="hive-details-container">
+  <div class="hive-details-title-container">
+    <h2>Ruche N°{{ hive.id }}</h2>
+    <button mat-flat-button class="hive-details-apiary-button"
+            routerLink="/apiaries" matTooltip="{{ 'hives.tootlips.goToApiary' | translate }}">
+	    Salut c'est le rucher
+    </button>
+  </div>
+
+  <div class="hive-details-main-infos-cards-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{hive.id}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ 'hives.labels.warnings' | translate }}
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ hive.size }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ 'hives.labels.size' | translate }}
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ hive.temperature }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ 'hives.labels.temperature' | translate }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="hive-details-history">
+	  <h2>{{ 'hives.labels.history' | translate }}</h2>
+	  <div class="hive-details-history-container">
+		  <div class="indicator"></div>
+		  <div class="hive-details-history-item-container">
+			  @for (history of hiveHistory; let i = $index; track history)
+			  {
+				  <div class="hive-details-history-item-banner">
+					  <mat-icon>add</mat-icon>
+					  <div class="hive-details-history-item">
+						  <div class="title">
+							  <h4>{{ history.title }}</h4>
+							  <p style="color: var(--primary-grey); font-style: italic; font-size: 0.8rem;">
+								  - {{ history.date | date: 'dd/MM/yyyy' }}
+							  </p>
+						  </div>
+						  <p style="margin: 0 !important; color: grey">{{ history.description }}</p>
+					  </div>
+				  </div>
+			  }
+		  </div>
+	  </div>
+  </div>
+</div>

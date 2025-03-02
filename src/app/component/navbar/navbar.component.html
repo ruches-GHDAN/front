@@ -1,30 +1,37 @@
 <mat-drawer-container class="container" [hasBackdrop]="false">
   <mat-drawer class="navbar" [opened]="!isActiveRouteAuthentication()" mode="side">
     <div class="navbar-content">
-      <div class="logo" (click)="navigateToDashboard()">
+      <div class="logo" [routerLink]="'landing'">
         <img src="assets/img/logoBlackTypo.png" alt="HiveBeille Logo" style="cursor: pointer;">
       </div>
       <nav>
         <ul>
-          <li routerLink="/dashboard" routerLinkActive="active">
+          <li [class]="isActiveRouteLanding() ? 'active' : ''" [routerLink]="'landing'">
             <mat-icon>home</mat-icon>
-            <span>Tableau de bord</span>
+            <span>{{ 'navbar.dashboard' | translate }}</span>
           </li>
-          <li routerLink="/hives" routerLinkActive="active">
+          <li [class]="isActiveRouteHives() ? 'active' : ''" [routerLink]="'hives'">
             <mat-icon>grid_view</mat-icon>
-            <span>Ruches</span>
+            <span>{{ 'navbar.hives' | translate }}</span>
           </li>
-          <li routerLink="/apiaries" routerLinkActive="active">
+          <li [class]="isActiveRouteApiaries() ? 'active' : ''" [routerLink]="'apiaries'">
             <mat-icon>location_on</mat-icon>
-            <span>Ruchers</span>
+            <span>{{ 'navbar.apiaries' | translate }}</span>
           </li>
         </ul>
       </nav>
       <div class="logout">
-        <button mat-flat-button (click)="logout()">
-          <mat-icon>logout</mat-icon>
-          <span>Se déconnecter</span>
-        </button>
+        @if (authenticationService.isAuthenticated()) {
+          <button mat-flat-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>{{ 'navbar.logout' | translate }}</span>
+          </button>
+        } @else {
+          <button mat-flat-button [routerLink]="'login'">
+            <mat-icon>login</mat-icon>
+            <span>{{ 'navbar.login' | translate }}</span>
+          </button>
+        }
       </div>
     </div>
   </mat-drawer>

@@ -6,7 +6,7 @@
 .navbar {
   width: 20%;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--primary-white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ nav li {
   transition: background-color 0.3s;
   width: 100%;
   justify-content: flex-start;
-  border: 2px solid #f0f0f0;
+  border: 2px solid var(--primary-white);
 }
 
 nav li.active {

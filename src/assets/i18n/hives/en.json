@@ -1,0 +1,14 @@
+{
+  "hives": {
+    "labels": {
+      "warnings": "Warnings",
+      "size": "Size (number of bees)",
+      "temperature": "Temperature",
+      "history": "History"
+    },
+    "tooltips": {
+      "hive": "Show details of this hive",
+      "goToApiary": "Go to apiary"
+    }
+  }
+}
