@@ -7,6 +7,7 @@ import { LandingComponent } from './component/landing/landing.component'
 import { ApiariesComponent } from './component/apiaries/apiaries.component';
 import { HiveDetailsComponent } from './component/hives/hive-details/hive-details.component'
 import { ErrorPageComponent } from './component/error-page/error-page.component'
+import {ApiaryDetailsComponent} from './component/apiaries/apiary-details/apiary-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'hives', component: HivesComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'apiaries', component: ApiariesComponent },
+  { path: 'apiary/:id', component: ApiaryDetailsComponent },
   { path: 'hive/:id', component: HiveDetailsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'error/:errorKey', component: ErrorPageComponent },

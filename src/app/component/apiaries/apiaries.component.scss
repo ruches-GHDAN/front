@@ -84,6 +84,10 @@
   color: black;
 }
 
+.apiaries-table tr {
+  cursor: pointer;
+}
+
 .apiaries-table tr:hover {
   background-color: #f1f1f1;
 }
@@ -96,6 +100,7 @@ button.active {
   border-radius: 15px;
   cursor: pointer;
 }
+
 
 button.inactive {
   background-color: #ccc;

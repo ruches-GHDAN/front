@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip'
 import { TranslatePipe } from '@ngx-translate/core'
@@ -21,7 +21,7 @@ import { DatePipe } from '@angular/common'
   ],
   styleUrls: ['./hives.component.scss']
 })
-export class HivesComponent {
+export class HivesComponent implements OnInit {
   public searchText = ''
   public dialog = inject(MatDialog)
   public hives: AllHives[] = []
@@ -51,7 +51,7 @@ export class HivesComponent {
   public addHive() {
     this.dialog.open(HiveDialogComponent).afterClosed().subscribe({
       next: () => {
-        console.log('Hive added successfully')
+        this.getAllHives()
       }
     })
   }

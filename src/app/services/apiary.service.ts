@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../Constants';
-import { Apiary } from '../models/Apiary.model'
+import { Apiary, ApiaryDetails } from '../models/Apiary.model'
 import { Observable } from 'rxjs'
 
 @Injectable({
@@ -29,5 +29,9 @@ export class ApiaryService {
 
   public getAllApiaries(): Observable<Apiary[]> {
     return this.http.post<Apiary[]>(`${this.getUserApiariesUrl}`, null)
+  }
+
+  public getApiaryById(apiaryId: string): Observable<ApiaryDetails> {
+    return this.http.get<ApiaryDetails>(`${this.baseUrl}/about/${apiaryId}`)
   }
 }

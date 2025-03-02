@@ -7,7 +7,9 @@ import { MatInput } from '@angular/material/input'
 import { MatOption, MatSelect } from '@angular/material/select'
 import { Apiary } from '../../../models/Apiary.model'
 import { ApiaryService } from '../../../services/apiary.service'
-import { TranslatePipe } from '@ngx-translate/core'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
+import { HiveService } from '../../../services/hive.service'
+import { SnackBarService } from '../../../services/SnackBar-service'
 
 @Component({
   selector: 'app-hive-dialog',
@@ -35,7 +37,10 @@ export class HiveDialogComponent implements OnInit {
   public apiariesAvailable: Apiary[] = []
 
   public constructor(private formBuilder: FormBuilder,
-                     private apiaryService: ApiaryService) {
+                     private apiaryService: ApiaryService,
+                     private hiveService: HiveService,
+                     private snackBarService: SnackBarService,
+                     private translateService: TranslateService) {
     this.addHiveForm = this.formBuilder.group({
       registration: [0, Validators.required],
       status: ['', Validators.required],
@@ -55,12 +60,21 @@ export class HiveDialogComponent implements OnInit {
         this.apiariesAvailable = apiaries
       },
       error: (error) => {
+        this.snackBarService.openErrorSnackBar('Error getting apiaries')
         console.error('Error getting apiaries', error)
       }
     })
   }
 
   public addHive() {
-    console.log(this.addHiveForm.value)
+    this.hiveService.addHive(this.addHiveForm.value).subscribe({
+      next: () => {
+        this.snackBarService.openInfoSnackBar('Hive added')
+      },
+      error: (error) => {
+        this.snackBarService.openErrorSnackBar('Error adding hive')
+        console.error('Error adding hive', error)
+      }
+    })
   }
 }
