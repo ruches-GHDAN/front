@@ -1,26 +1,42 @@
 @if (!isLoading) {
+  <div class="header">
+    <h1>{{ 'dashboard.title' | translate }}</h1>
+  </div>
   <mat-grid-list cols="4" rowHeight="100px" gutterSize="12px" class="dashboard-data-container">
-    @for (data of dashboardData; track data) {
-      <mat-grid-tile colspan="1">
-        <mat-card class="dashboard-card" appearance="outlined">
-          <mat-card-content>
-            <p class="dashboard-card-data">
-              {{ data.value }}
-            </p>
-          </mat-card-content>
-          <mat-card-header class="dashboard-card-header">
-            <mat-card-title class="dashboard-card-title">{{ 'dashboard.globalInfos.' + data.key | translate }}</mat-card-title>
-          </mat-card-header>
-        </mat-card>
-      </mat-grid-tile>
+    @if (dashboardData.length === 0) {
+      <div class="dashboard-data-empty">
+        {{ 'dashboard.globalInfos.noData' | translate }}
+      </div>
+    } @else {
+      @for (data of dashboardData; track data) {
+        <mat-grid-tile colspan="1">
+          <mat-card class="dashboard-card" appearance="outlined">
+            <mat-card-content>
+              <p class="dashboard-card-data">
+                {{ data.value }}
+              </p>
+            </mat-card-content>
+            <mat-card-header class="dashboard-card-header">
+              <mat-card-title class="dashboard-card-title">{{ 'dashboard.globalInfos.' + data.key | translate }}</mat-card-title>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      }
     }
   </mat-grid-list>
   <h2> {{ 'dashboard.apiaries.title' | translate }} </h2>
   <mat-grid-list cols="4" rowHeight="480px" gutterSize="16px" class="dashboard-card-apiaries">
     <mat-grid-tile colspan="3">
-      <div class="map-container">
-        <app-map [mapData]="mapData"/>
-      </div>
+      @if (mapData.length > 0) {
+        <div class="map-container">
+          <app-map [mapData]="mapData"/>
+        </div>
+      } @else {
+        <div class="map-container-empty">
+          {{ 'dashboard.apiaries.feed.noMapInfos' | translate }}
+        </div>
+      }
+
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
       <div class="feed-container" style="height: 100%; width: 100%">

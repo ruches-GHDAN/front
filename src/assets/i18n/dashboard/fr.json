@@ -1,10 +1,12 @@
 {
   "dashboard": {
+    "title": "Tableau de bord",
     "globalInfos": {
       "nbApiary": "Rucher(s)",
       "nbHives": "Ruche(s)",
       "honeyQuantity": "kg de miel récolté(s)",
-      "nbAlertes": "Alertes"
+      "nbAlertes": "Alertes",
+      "noData": "Aucune donnée à afficher"
     },
     "apiaries": {
       "title": "Mes ruchers",
@@ -12,7 +14,8 @@
         "alertsTitle": "Alerts",
         "noAlertMessage": "Aucune alerte",
         "historyTitle": "History",
-        "noHistoryMessage": "Aucun historique"
+        "noHistoryMessage": "Aucun historique",
+        "noMapInfos": "Aucune donnée à afficher sur la carte"
       }
     }
   }
