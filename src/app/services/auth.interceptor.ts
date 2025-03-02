@@ -1,46 +1,32 @@
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-  HttpErrorResponse,
-} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpErrorResponse, HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { environment } from '../environments/environments'
 import { Constants } from '../Constants'
+import { Router } from '@angular/router'
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-  constructor(private router: Router,
-              private readonly constants: Constants) {}
+export function AuthInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
+  const constants: Constants = new Constants()
+  const router: Router = new Router()
+  const token = localStorage.getItem(constants.TOKEN_KEY)
 
-  public intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem(this.constants.TOKEN_KEY)
+  if (req.url.startsWith(`${environment.apiUrl}/api`)) {
+    const clonedRequest = token
+      ? req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+        }
+      }) : req
 
-    if (req.url.startsWith(`${environment.apiUrl}/api`)) {
-      const clonedRequest = token
-        ? req.clone({
-          setHeaders: {
-            Authorization: `Bearer ${token}`,
-          }
-        }) : req
-
-      return next.handle(clonedRequest).pipe(
-        catchError((error: HttpErrorResponse) => {
-          if (error.status === 401 || error.status === 403) {
-            this.router.navigate(['/error/' + error.status])
-          }
-          return throwError(() => error)
-        })
-      )
-    }
-
-    return next.handle(req)
+    return next(clonedRequest).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401 || error.status === 403) {
+          router.navigate(['/error/' + error.status])
+        }
+        return throwError(() => error)
+      })
+    )
+  } else {
+    return next(req)
   }
 }

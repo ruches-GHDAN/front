@@ -31,7 +31,7 @@
             <tr matTooltip="{{ 'hives.tooltips.hive' | translate }}" routerLink="/hive/{{hive.id}}">
               <td>{{ hive.name }}</td>
               <td>{{ hive.apiary }}</td>
-              <td>{{ hive.installationDate }}</td>
+              <td>{{ hive.createdDate }}</td>
               <td>{{ hive.size }}</td>
               <td>{{ hive.disease }}</td>
               <td>{{ hive.queenYear }}</td>
@@ -41,8 +41,8 @@
                 </button>
               </td>
               <td>
-                <button [class.active]="hive.cleaning === 1" [class.inactive]="hive.cleaning === 0">
-                  {{ hive.cleaning === 1 ? 'Oui' : 'Non' }}
+                <button [class.active]="hive.cleaning === 'propre'" [class.inactive]="hive.cleaning === 'sale'">
+                  {{ hive.cleaning === "propre" ? 'Oui' : 'Non' }}
                 </button>
               </td>
             </tr>

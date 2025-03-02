@@ -10,7 +10,8 @@
       "login": "Une erreur est survenue lors de la connexion, veuillez réessayer",
       "register": "Une erreur est survenue lors de l'inscription, veuillez réessayer",
       "logout": "Une erreur est survenue lors de la déconnexion, veuillez réessayer",
-      "dashboardFetching": "Aucune information n'a pu être récupérée"
+      "dashboardFetching": "Aucune information n'a pu être récupérée",
+      "getApiaries": "Une erreur est survenue lors de la récupération des ruchers"
     }
   }
 }

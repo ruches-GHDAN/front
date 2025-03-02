@@ -61,4 +61,8 @@ export class DashboardComponent implements OnInit {
       })
     }
   }
+
+  public addApiary() {
+    console.log('Ajouter un rucher')
+  }
 }

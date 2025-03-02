@@ -1,37 +1,41 @@
 <div class="apiaries-container">
-
   <div class="header">
     <h1>{{ 'APIARIES.TITLE' | translate }}</h1>
     <div class="header-actions">
       <input type="text" [(ngModel)]="searchText" [placeholder]="'APIARIES.SEARCH_PLACEHOLDER' | translate" class="search-bar">
-      <button class="add-apiary-btn">{{ 'APIARIES.ADD_BUTTON' | translate }}</button>
+      <button class="add-apiary-btn" (click)="addApiary()">{{ 'APIARIES.ADD_BUTTON' | translate }}</button>
     </div>
   </div>
-
   <div class="table-wrapper">
     <table class="apiaries-table">
       <thead>
       <tr>
         <th>{{ 'APIARIES.TABLE.NAME' | translate }}</th>
-        <th>{{ 'APIARIES.TABLE.LOCATION' | translate }}</th>
-        <th>{{ 'APIARIES.TABLE.HIVES_COUNT' | translate }}</th>
-        <th>{{ 'APIARIES.TABLE.HONEY_PRODUCED' | translate }}</th>
-        <th>{{ 'APIARIES.TABLE.ACTIVE_HIVES' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.LATITUDE' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.LONGITUDE' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.TEMPERATURE' | translate }}</th>
+<!--        <th>{{ 'APIARIES.TABLE.LOCATION' | translate }}</th>-->
+<!--        <th>{{ 'APIARIES.TABLE.HIVES_COUNT' | translate }}</th>-->
+<!--        <th>{{ 'APIARIES.TABLE.HONEY_PRODUCED' | translate }}</th>-->
+<!--        <th>{{ 'APIARIES.TABLE.ACTIVE_HIVES' | translate }}</th>-->
       </tr>
       </thead>
       <tbody>
         @if (filteredApiaries.length === 0) {
           <tr>
-            <td colspan="5" class="no-results">{{ 'APIARIES.TABLE.NO_RESULTS' | translate }}</td>
+            <td colspan="4" class="no-results">{{ 'APIARIES.TABLE.NO_RESULTS' | translate }}</td>
           </tr>
         } @else {
           @for (apiary of filteredApiaries; track apiary) {
-            <tr>
+            <tr matTooltip="{{ 'APIARIES.TOOLTIPS.SEEAPIARY' | translate }}">
               <td>{{ apiary.name }}</td>
-              <td>{{ apiary.location }}</td>
-              <td>{{ apiary.hivesCount }}</td>
-              <td>{{ apiary.honeyProduced }} kg</td>
-              <td>{{ apiary.activeHives }}</td>
+              <td>{{ apiary.latitude }}</td>
+              <td>{{ apiary.longitude }}</td>
+              <td>{{ apiary.temperature }} °C</td>
+<!--              <td>{{ apiary.location }}</td>-->
+<!--              <td>{{ apiary.hivesCount }}</td>-->
+<!--              <td>{{ apiary.honeyProduced }} kg</td>-->
+<!--              <td>{{ apiary.activeHives }}</td>-->
             </tr>
           }
         }

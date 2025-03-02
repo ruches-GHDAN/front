@@ -1,38 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog'
+import { ApiaryDialogComponent } from './apiary-dialog/apiary-dialog.component'
+import { Apiary } from '../../models/Apiary.model'
+import { ApiaryService } from '../../services/apiary.service'
+import { SnackBarService } from '../../services/SnackBar-service'
+import { MatTooltip } from '@angular/material/tooltip'
 
 @Component({
   selector: 'app-apiaries',
   imports: [
     FormsModule,
-    TranslatePipe
+    TranslatePipe,
+    MatTooltip,
   ],
   templateUrl: './apiaries.component.html',
   styleUrl: './apiaries.component.scss'
 })
-export class ApiariesComponent {
-  searchText = '';
+export class ApiariesComponent implements OnInit {
+  searchText = ''
+  public dialog = inject(MatDialog)
+  public apiaries: Apiary[] = []
 
-  apiaries = [
-    { name: 'Rucher Urbain', location: 'Paris', hivesCount: 12, honeyProduced: 18, activeHives: 10 },
-    { name: 'Rucher des Landes', location: 'Bordeaux', hivesCount: 8, honeyProduced: 22, activeHives: 7 },
-    { name: 'Rucher du Périgord', location: 'Dordogne', hivesCount: 15, honeyProduced: 20, activeHives: 15 },
-    { name: 'Rucher de la Provence', location: 'Marseille', hivesCount: 10, honeyProduced: 25, activeHives: 10 },
-    { name: 'Rucher de la Vallée', location: 'Lyon', hivesCount: 7, honeyProduced: 19, activeHives: 6 },
-    { name: 'Rucher de Châtaignier', location: 'Toulouse', hivesCount: 9, honeyProduced: 21, activeHives: 9 },
-    { name: 'Rucher des Alpes', location: 'Grenoble', hivesCount: 11, honeyProduced: 16, activeHives: 11 }
-  ];
+  public constructor(private apiaryService: ApiaryService,
+                     private snackBarService: SnackBarService,
+                     private translateService: TranslateService) {
+  }
+
+  public ngOnInit() {
+    this.getAllApiaries()
+  }
 
   get filteredApiaries() {
     return this.apiaries.filter(apiary => apiary.name.toLowerCase().includes(this.searchText.toLowerCase()));
   }
 
-  addApiary() {
-    console.log('Ajouter un rucher');
+  public getAllApiaries() {
+    this.apiaryService.getAllApiaries().subscribe({
+      next: (apiaries) => {
+        this.apiaries = apiaries
+      },
+      error: (error) => {
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getApiaries'))
+        console.error('Error getting apiaries', error)
+      }
+    })
   }
 
-  viewApiary(apiary: any) {
-    console.log('Voir les détails du rucher', apiary);
+  public addApiary() {
+    this.dialog.open(ApiaryDialogComponent).afterClosed().subscribe({
+      next: () => {
+        this.getAllApiaries()
+      }
+    })
   }
 }
