@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HivesComponent } from './hives.component';
 import { provideRouter } from '@angular/router';
-import { MockTranslateLoader } from '../../utils/MockTranslateLoarder';
+import { MockTranslateLoader } from '../../utils/MockTranslateLoader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 describe('HivesComponent', () => {

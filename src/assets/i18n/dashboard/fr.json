@@ -1,0 +1,19 @@
+{
+  "dashboard": {
+    "globalInfos": {
+      "nbApiary": "Rucher(s)",
+      "nbHives": "Ruche(s)",
+      "honeyQuantity": "kg de miel récolté(s)",
+      "nbAlertes": "Alertes"
+    },
+    "apiaries": {
+      "title": "Mes ruchers",
+      "feed": {
+        "alertsTitle": "Alerts",
+        "noAlertMessage": "Aucune alerte",
+        "historyTitle": "History",
+        "noHistoryMessage": "Aucun historique"
+      }
+    }
+  }
+}

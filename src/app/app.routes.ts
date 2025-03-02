@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router'
 import { LoginComponent } from './component/login/login.component'
 import { RegisterComponent } from './component/register/register.component'
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HivesComponent } from './component/hives/hives.component'
 import { LandingComponent } from './component/landing/landing.component'
 import { ApiariesComponent } from './component/apiaries/apiaries.component';
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'apiaries', component: ApiariesComponent },
   { path: 'hive/:id', component: HiveDetailsComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'error/:errorKey', component: ErrorPageComponent },
-  { path: '**', redirectTo: 'error/404', pathMatch: 'full' }
-]
+  { path: '**', redirectTo: 'error/404', pathMatch: 'full' },
+];

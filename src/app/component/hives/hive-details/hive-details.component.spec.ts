@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HiveDetailsComponent } from './hive-details.component';
 import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { MockTranslateLoader } from '../../../utils/MockTranslateLoarder';
+import { MockTranslateLoader } from '../../../utils/MockTranslateLoader';
 
 describe('HiveDetailsComponent', () => {
   let component: HiveDetailsComponent;
