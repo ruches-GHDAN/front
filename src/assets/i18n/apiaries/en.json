@@ -5,17 +5,24 @@
     "ADD_BUTTON": "Add an apiary",
     "TABLE": {
       "NAME": "Name",
-      "LOCATION": "Location",
-      "HIVES_COUNT": "Number of hives",
-      "HONEY_PRODUCED": "Honey produced",
-      "ACTIVE_HIVES": "Active hives",
-      "NO_RESULTS": "No apiary matches your search.",
       "LATITUDE": "Latitude",
       "LONGITUDE": "Longitude",
+      "TEMPERATURE": "Temperature",
+      "NO_RESULTS": "No apiary matches your search."
+    },
+    "DETAILS": {
+      "ID": "Apiary N°",
+      "NAME": "Apiary name",
+      "LOCATION": "Location",
+      "HIVES_COUNT": "Number of hives",
+      "CREATION_DATE": "Creation date",
+      "STATUS": "Status",
+      "HISTORY": "History",
+      "GO_TO_HIVES": "See the hives",
       "TEMPERATURE": "Temperature"
     },
     "TOOLTIPS": {
-      "SEEAPIARY": "See the apiary"
+      "GO_TO_HIVES": "Go to the hives list"
     },
     "DIALOG": {
       "TITLE": "Add an apiary",
@@ -25,8 +32,8 @@
       "LONG": "Longitude",
       "TEMP": "Temperature",
       "BUTTONS": {
-        "NO": "Cancel",
-        "OK": "Save"
+        "OK": "Save",
+        "NO": "Cancel"
       }
     }
   }

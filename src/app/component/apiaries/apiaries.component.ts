@@ -7,6 +7,7 @@ import { Apiary } from '../../models/Apiary.model'
 import { ApiaryService } from '../../services/apiary.service'
 import { SnackBarService } from '../../services/SnackBar-service'
 import { MatTooltip } from '@angular/material/tooltip'
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-apiaries',
@@ -14,6 +15,7 @@ import { MatTooltip } from '@angular/material/tooltip'
     FormsModule,
     TranslatePipe,
     MatTooltip,
+    RouterLink,
   ],
   templateUrl: './apiaries.component.html',
   styleUrl: './apiaries.component.scss'

@@ -27,7 +27,7 @@
           </tr>
         } @else {
           @for (apiary of filteredApiaries; track apiary) {
-            <tr matTooltip="{{ 'APIARIES.TOOLTIPS.SEEAPIARY' | translate }}">
+            <tr matTooltip="{{ 'APIARIES.TOOLTIPS.SEEAPIARY' | translate }}" routerLink="/apiary/{{apiary.id}}">
               <td>{{ apiary.name }}</td>
               <td>{{ apiary.latitude }}</td>
               <td>{{ apiary.longitude }}</td>

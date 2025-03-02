@@ -3,7 +3,7 @@ import { environment } from '../environments/environments'
 import { HttpClient } from '@angular/common/http'
 import { Constants } from '../Constants'
 import { Observable } from 'rxjs'
-import { AllHives, Hive, HiveResponse } from '../models/Hives.model'
+import { AllHives, Hive, HiveResponse, Hives } from '../models/Hives.model'
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,9 @@ export class HiveService {
 
   public getAllHives(): Observable<AllHives[]> {
     return this.http.post<AllHives[]>(this.getAllHivesUrl, null)
+  }
+
+  public addHive(request: Hives):Observable<Hives> {
+    return this.http.post<Hives>(`${this.baseUrl}/create`, request)
   }
 }

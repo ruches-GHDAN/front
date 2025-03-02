@@ -32,7 +32,7 @@
               <td>{{ hive.ApiaryName }}</td>
               <td>{{ hive.InstallDate | date: 'dd-MM-yyyy' }}</td>
               <td>{{ hive.HiveSize }}</td>
-              <td>{{ hive.Disease }}</td>
+              <td>{{ hive.Disease ? hive.Disease : 'aucune maladie détectée'}}</td>
               <td>{{ hive.QueenYear }}</td>
               <td>
                 <button [class.active]="hive.Status === 'in_use'" [class.inactive]="hive.Status !== 'in_use'">

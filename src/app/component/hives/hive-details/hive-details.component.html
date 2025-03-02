@@ -2,7 +2,7 @@
   <div class="hive-details-title-container">
     <h2>Ruche N°{{ hive?.hive?.id }}</h2>
     <button mat-flat-button class="hive-details-apiary-button"
-            routerLink="/apiaries" matTooltip="{{ 'hives.tooltips.goToApiary' | translate }}">
+            routerLink="/apiary/{{hive?.apiary?.id}}" matTooltip="{{ 'hives.tooltips.goToApiary' | translate }}">
       {{ hive?.apiary?.name }}
     </button>
   </div>
