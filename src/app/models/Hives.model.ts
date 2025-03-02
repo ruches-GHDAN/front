@@ -36,3 +36,14 @@ export interface Hives {
   status: string
   cleaning: string
 }
+
+export interface AllHives {
+  id: number
+  HiveRegistration: number
+  ApiaryName: string
+  InstallDate: string
+  HiveSize: number
+  Disease: string
+  QueenYear: number
+  Status: string
+}
