@@ -16,6 +16,18 @@
     },
     "TOOLTIPS": {
       "SEEAPIARY": "See the apiary"
+    },
+    "DIALOG": {
+      "TITLE": "Add an apiary",
+      "SUBTITLE": "Please fill in the following information to add an apiary.",
+      "NAME": "Apiary name",
+      "LAT": "Latitude",
+      "LONG": "Longitude",
+      "TEMP": "Temperature",
+      "BUTTONS": {
+        "NO": "Cancel",
+        "OK": "Save"
+      }
     }
   }
 }

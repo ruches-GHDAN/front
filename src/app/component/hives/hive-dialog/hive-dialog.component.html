@@ -1,14 +1,14 @@
-<h2 mat-dialog-title>Add Apiary</h2>
+<h2 mat-dialog-title>{{ 'hives.dialog.title' | translate }}</h2>
 <mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <p>{{ 'hives.dialog.subtitle' | translate }}</p>
   <form [formGroup]="addHiveForm">
     <mat-form-field>
-      <mat-label>Référence de la ruche</mat-label>
+      <mat-label>{{ 'hives.dialog.registration' | translate }}</mat-label>
       <input matInput type="number" formControlName="registration"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Status de la ruche</mat-label>
+      <mat-label>{{ 'hives.dialog.status' | translate }}</mat-label>
       <mat-select formControlName="status">
         <mat-option value="in_use">Active</mat-option>
         <mat-option value="in_stock">Inactive</mat-option>
@@ -16,37 +16,37 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Taille de la ruche</mat-label>
+      <mat-label>{{ 'hives.dialog.size' | translate }}</mat-label>
       <input matInput type="number" formControlName="size"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Race de la ruche</mat-label>
+      <mat-label>{{ 'hives.dialog.race' | translate }}</mat-label>
       <input matInput type="text" formControlName="race"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Année de la reine</mat-label>
+      <mat-label>{{ 'hives.dialog.queenYear' | translate }}</mat-label>
       <input matInput type="number" formControlName="queenYear"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Température</mat-label>
+      <mat-label>{{ 'hives.dialog.temp' | translate }}</mat-label>
       <input matInput type="number" formControlName="temperature"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Latitude</mat-label>
+      <mat-label>{{ 'hives.dialog.lat' | translate }}</mat-label>
       <input matInput type="number" formControlName="latitude"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Longitude</mat-label>
+      <mat-label>{{ 'hives.dialog.long' | translate }}</mat-label>
       <input matInput type="number" formControlName="longitude"/>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>ID du rucher</mat-label>
+      <mat-label>{{ 'hives.dialog.apiary_id' | translate }}</mat-label>
       <mat-select formControlName="apiary_id">
         @for (apiary of apiariesAvailable; track apiary.id) {
           <mat-option [value]="apiary.id">{{ apiary.name }}</mat-option>
@@ -56,6 +56,6 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>No Thanks</button>
-  <button mat-button mat-dialog-close (click)="addHive()">Ok</button>
+  <button mat-button mat-dialog-close>{{ 'hives.dialog.buttons.cancel' | translate }}</button>
+  <button mat-button mat-dialog-close (click)="addHive()">{{ 'hives.dialog.buttons.save' | translate }}</button>
 </mat-dialog-actions>

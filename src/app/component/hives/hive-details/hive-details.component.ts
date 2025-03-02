@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router'
 import { MatButton } from '@angular/material/button'
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card'
-import { Hive, HiveHistory } from '../../../models/Hives.model'
-import { TranslatePipe } from '@ngx-translate/core'
+import { Hive, HiveHistory, HiveResponse } from '../../../models/Hives.model'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
 import { DatePipe } from '@angular/common'
 import { MatIcon } from '@angular/material/icon'
 import { MatTooltip } from '@angular/material/tooltip'
+import { HiveService } from '../../../services/hive.service'
+import { SnackBarService } from '../../../services/SnackBar-service'
 
 @Component({
   selector: 'app-hive-details',
@@ -20,31 +22,21 @@ import { MatTooltip } from '@angular/material/tooltip'
     DatePipe,
     MatIcon,
     RouterLink,
-    MatTooltip,
-
-
+    MatTooltip
   ],
   templateUrl: './hive-details.component.html',
   styleUrl: './hive-details.component.scss'
 })
-export class HiveDetailsComponent {
+export class HiveDetailsComponent implements OnInit {
   public hiveId: string
-  public hive: Hive
+  public hive: HiveResponse | undefined
   public hiveHistory: HiveHistory[]
 
-  public constructor(private route: ActivatedRoute) {
+  public constructor(private route: ActivatedRoute,
+                     private hiveService: HiveService,
+                     private snackBarService: SnackBarService,
+                     private translateService: TranslateService) {
     this.hiveId = this.route.snapshot.paramMap.get('id')!
-    this.hive = {
-      id: parseInt(this.hiveId),
-      registration: 23485,
-      status: 'Active',
-      size: 10,
-      race: 'Italian',
-      temperature: 35,
-      queenYear: 2019,
-      longitude: 45.5,
-      latitude: 45.5
-    }
 
     this.hiveHistory = [
       {
@@ -66,5 +58,21 @@ export class HiveDetailsComponent {
         idRuche: parseInt(this.hiveId)
       }
     ]
+  }
+
+  public ngOnInit(): void {
+    this.getHiveInfos()
+  }
+
+  private getHiveInfos(): void {
+    this.hiveService.getHiveById(parseInt(this.hiveId)).subscribe({
+      next: (hive: HiveResponse) => {
+        this.hive = hive
+      },
+      error: (error) => {
+        console.error(error)
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error'))
+      }
+    })
   }
 }
