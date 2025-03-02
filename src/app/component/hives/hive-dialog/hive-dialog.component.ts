@@ -7,6 +7,7 @@ import { MatInput } from '@angular/material/input'
 import { MatOption, MatSelect } from '@angular/material/select'
 import { Apiary } from '../../../models/Apiary.model'
 import { ApiaryService } from '../../../services/apiary.service'
+import { TranslatePipe } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-hive-dialog',
@@ -23,6 +24,7 @@ import { ApiaryService } from '../../../services/apiary.service'
     ReactiveFormsModule,
     MatSelect,
     MatOption,
+    TranslatePipe,
   ],
   templateUrl: './hive-dialog.component.html',
   styleUrl: './hive-dialog.component.scss'

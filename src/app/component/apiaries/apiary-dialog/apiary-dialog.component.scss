@@ -1,0 +1,9 @@
+:host {
+  --mat-sys-primary: var(--primary-yellow);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
