@@ -27,8 +27,7 @@ import {forkJoin} from "rxjs";
 export class DashboardComponent implements OnInit {
   isLoading: boolean = false;
   dashboardData: any = []
-
-  mapData: {latitude: number, longitude: number}[] = [];
+  mapData: { latitude: number, longitude: number }[] = [];
 
   constructor(private authService: AuthenticationService,
               private apiaryService: ApiaryService,

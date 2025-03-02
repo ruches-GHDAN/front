@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoaderComponent } from './loader.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { MockTranslateLoader } from '../../utils/MockTranslateLoarder';
+import { MockTranslateLoader } from '../../utils/MockTranslateLoader';
 
 describe('LoaderComponent', () => {
   let component: LoaderComponent;
