@@ -16,10 +16,7 @@ export const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'apiaries', component: ApiariesComponent },
   { path: 'hive/:id', component: HiveDetailsComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'error/:errorKey', component: ErrorPageComponent },
   { path: '**', redirectTo: 'error/404', pathMatch: 'full' },
-
-  // Authenticated routes
-  // TODO : Ajouter AuthGuard pour que la route soit accessible uniquement si l'utilisateur est connecté
-  { path: 'dashboard', component: DashboardComponent }
 ];

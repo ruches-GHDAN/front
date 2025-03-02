@@ -1,8 +1,12 @@
-import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { MapComponent } from '../map/map.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthenticationService } from '../../services/authentication.service';
+import { ApiaryService } from '../../services/apiary.service';
+import {DashboardService} from "../../services/dashboard.service";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,42 +24,34 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
-  dashboardData = [
-    {
-      key: 'Rucher(s)',
-      value: '3'
-    },
-    {
-      key: 'Ruche(s)',
-      value: '12'
-    },
-    {
-      key: 'Alerte(s)',
-      value: '2'
-    },
-    {
-      key: 'kg de miel Récolté(s)',
-      value: '48'
-    }
-  ]
+export class DashboardComponent implements OnInit {
+  isLoading: boolean = false;
+  dashboardData: any = []
 
-  mapData = [
-    {
-      lat: 46.98878785962237,
-      lng: 5.364643002313322
-    },
-    {
-      lat: 46.991311598616214,
-      lng: 5.3721625122334284
-    },
-    {
-      lat: 47.00865295058318,
-      lng: 5.378989638961729
-    },
-    {
-      lat: 47.003318747577616,
-      lng: 5.315922618131288
+  mapData: {latitude: number, longitude: number}[] = [];
+
+  constructor(private authService: AuthenticationService,
+              private apiaryService: ApiaryService,
+              private dashboardService: DashboardService) {
+  }
+
+  ngOnInit() {
+    const currentUser = this.authService.getCurrentUser()
+    if (this.authService.isAuthenticated() && currentUser) {
+      this.isLoading = true
+      forkJoin([
+        this.apiaryService.getUserApiariesLocations(currentUser.id),
+          this.dashboardService.getData(currentUser.id)
+      ]).subscribe(
+        response => {
+          this.mapData = response[0].locations
+          this.dashboardData = Object.entries(response[1]).map(([key, value]) => ({
+            key: key,
+            value: value
+          }));
+          this.isLoading = false
+        }
+      )
     }
-  ]
+  }
 }

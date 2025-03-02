@@ -1,33 +1,35 @@
-<mat-grid-list cols="4" rowHeight="100px" gutterSize="12px" class="dashboard-data-container">
-  @for (data of dashboardData; track data) {
-    <mat-grid-tile colspan="1">
-      <mat-card class="dashboard-card" appearance="outlined">
-        <mat-card-content>
-          <p class="dashboard-card-data">
-            {{ data.value }}
-          </p>
-        </mat-card-content>
-        <mat-card-header class="dashboard-card-header">
-          <mat-card-title class="dashboard-card-title">{{ data.key }}</mat-card-title>
-        </mat-card-header>
-      </mat-card>
+@if (!isLoading) {
+  <mat-grid-list cols="4" rowHeight="100px" gutterSize="12px" class="dashboard-data-container">
+    @for (data of dashboardData; track data) {
+      <mat-grid-tile colspan="1">
+        <mat-card class="dashboard-card" appearance="outlined">
+          <mat-card-content>
+            <p class="dashboard-card-data">
+              {{ data.value }}
+            </p>
+          </mat-card-content>
+          <mat-card-header class="dashboard-card-header">
+            <mat-card-title class="dashboard-card-title">{{ 'dashboard.globalInfos.' + data.key | translate }}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+    }
+  </mat-grid-list>
+  <h2> {{ 'dashboard.apiaries.title' | translate }} </h2>
+  <mat-grid-list cols="4" rowHeight="480px" gutterSize="16px" class="dashboard-card-apiaries">
+    <mat-grid-tile colspan="3">
+      <div class="map-container">
+        <app-map [mapData]="mapData"/>
+      </div>
     </mat-grid-tile>
-  }
-</mat-grid-list>
-<h2> {{ 'dashboard.apiaries.title' | translate }} </h2>
-<mat-grid-list cols="4" rowHeight="480px" gutterSize="16px" class="dashboard-card-apiaries">
-  <mat-grid-tile colspan="3">
-    <div class="map-container">
-      <app-map [mapData]="mapData"/>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1">
-    <div class="feed-container" style="height: 100%; width: 100%">
-      <h3> {{ 'dashboard.apiaries.feed.alertsTitle' | translate }} </h3>
-      <p>blabla</p>
+    <mat-grid-tile colspan="1">
+      <div class="feed-container" style="height: 100%; width: 100%">
+        <h3> {{ 'dashboard.apiaries.feed.alertsTitle' | translate }} </h3>
+        <p> {{ 'dashboard.apiaries.feed.noAlertMessage' | translate }} </p>
 
-      <h3> {{ 'dashboard.apiaries.feed.historyTitle' | translate }} </h3>
-      <p>blabla</p>
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+        <h3> {{ 'dashboard.apiaries.feed.historyTitle' | translate }} </h3>
+        <p> {{ 'dashboard.apiaries.feed.noHistoryMessage' | translate }} </p>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+}

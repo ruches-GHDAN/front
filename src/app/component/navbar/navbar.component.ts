@@ -37,8 +37,8 @@ export class NavbarComponent {
     return this.router.url === '/hives'
   }
 
-  public isActiveRouteLanding(): boolean {
-    return this.router.url === '/landing'
+  public isActiveRouteDashboard(): boolean {
+    return this.router.url === '/dashboard'
   }
 
   public isActiveRouteApiaries(): boolean {

@@ -12,7 +12,7 @@ import { featureGroup, icon, latLng, LatLngBounds, marker, Marker, tileLayer } f
   styleUrl: './map.component.scss'
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  @Input() mapData: { lat: number, lng: number }[] = [];
+  @Input() mapData: { latitude: number, longitude: number }[] = [];
   @ViewChild(LeafletDirective) leafletDirective!: LeafletDirective;
 
   defaultIcon = icon({
@@ -42,13 +42,13 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   computeMapOptions() {
     this.mapData.forEach((data) => {
-      this.markers.push(marker([ data.lat, data.lng ], { icon: this.defaultIcon }));
+      this.markers.push(marker([ data.latitude, data.longitude ], { icon: this.defaultIcon }));
     });
 
     this.bounds = featureGroup(this.markers).getBounds();
 
     this.options = {
-      center: latLng(this.mapData.at(0)!.lat, this.mapData.at(0)!.lng),
+      center: latLng(this.mapData.at(0)!.latitude, this.mapData.at(0)!.longitude),
       layers: [
         tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
         ...this.markers
