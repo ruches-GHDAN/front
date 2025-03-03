@@ -15,3 +15,8 @@ export interface ApiaryHistory {
   title: string
   description: string
 }
+
+export interface HivesLocation {
+  latitude: number
+  longitude: number
+}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
-import { Apiary, ApiaryHistory } from '../../../models/Apiaries.model';
+import { ApiaryHistory, HivesLocation } from '../../../models/Apiaries.model';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
@@ -10,6 +10,8 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { ApiaryService } from '../../../services/apiary.service'
 import { SnackBarService } from '../../../services/SnackBar-service'
 import { ApiaryDetails } from '../../../models/Apiary.model'
+import { MapComponent } from '../../map/map.component'
+import { MatGridList, MatGridTile } from '@angular/material/grid-list'
 
 @Component({
   selector: 'app-apiary-details',
@@ -23,7 +25,10 @@ import { ApiaryDetails } from '../../../models/Apiary.model'
     DatePipe,
     MatIcon,
     RouterLink,
-    MatTooltip
+    MatTooltip,
+    MapComponent,
+    MatGridList,
+    MatGridTile,
   ],
   templateUrl: './apiary-details.component.html',
   styleUrl: './apiary-details.component.scss'
@@ -32,6 +37,7 @@ export class ApiaryDetailsComponent implements OnInit {
   public apiaryId: string
   public apiary: ApiaryDetails | undefined
   public apiaryHistory: ApiaryHistory[] | undefined
+  public mapData: { latitude: number, longitude: number }[] = [];
 
   public constructor(private route: ActivatedRoute,
                      private apiaryService: ApiaryService,
@@ -43,6 +49,7 @@ export class ApiaryDetailsComponent implements OnInit {
   public ngOnInit() {
     this.getApiaryById()
     this.getApiaryHistory()
+    this.getApiaryHivesLocation()
   }
 
   public getApiaryById() {
@@ -68,6 +75,18 @@ export class ApiaryDetailsComponent implements OnInit {
         }
         this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getApiaryHistory'))
         console.error('Error fetching apiary history', error)
+      }
+    })
+  }
+
+  public getApiaryHivesLocation() {
+    this.apiaryService.getHivesLocation(this.apiaryId).subscribe({
+      next: (response: HivesLocation[]) => {
+        this.mapData = response
+      },
+      error: (error: any) => {
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getHivesLocation'))
+        console.error('Error fetching hives location', error)
       }
     })
   }

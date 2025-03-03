@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../Constants';
 import { Apiary, ApiaryDetails } from '../models/Apiary.model'
 import { Observable } from 'rxjs'
-import { ApiaryHistory } from '../models/Apiaries.model'
+import { ApiaryHistory, HivesLocation } from '../models/Apiaries.model'
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,9 @@ export class ApiaryService {
 
   public getApiaryHistory(apiaryId: string): Observable<ApiaryHistory[]> {
     return this.http.post<ApiaryHistory[]>(`${this.getApiaryHistoryUrl}/${apiaryId}`, null)
+  }
+
+  public getHivesLocation(apiaryId: string): Observable<HivesLocation[]> {
+    return this.http.get<HivesLocation[]>(`${this.baseUrl}/locateHives/${apiaryId}`)
   }
 }
