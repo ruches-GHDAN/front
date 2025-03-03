@@ -8,17 +8,18 @@ import { ApiariesComponent } from './component/apiaries/apiaries.component';
 import { HiveDetailsComponent } from './component/hives/hive-details/hive-details.component'
 import { ErrorPageComponent } from './component/error-page/error-page.component'
 import {ApiaryDetailsComponent} from './component/apiaries/apiary-details/apiary-details.component';
+import { AuthGuard } from './services/auth.guard'
 
 export const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'hives', component: HivesComponent },
   { path: 'landing', component: LandingComponent },
-  { path: 'apiaries', component: ApiariesComponent },
-  { path: 'apiary/:id', component: ApiaryDetailsComponent },
-  { path: 'hive/:id', component: HiveDetailsComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'hives', component: HivesComponent, canActivate: [AuthGuard] },
+  { path: 'apiaries', component: ApiariesComponent, canActivate: [AuthGuard] },
+  { path: 'apiary/:id', component: ApiaryDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'hive/:id', component: HiveDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'error/:errorKey', component: ErrorPageComponent },
-  { path: '**', redirectTo: 'error/404', pathMatch: 'full' },
+  { path: '**', redirectTo: 'error/404', pathMatch: 'full' }
 ];

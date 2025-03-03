@@ -4,6 +4,7 @@ import { environment } from '../environments/environments'
 import { CurrentUser, LoginRequest, LoginResponse, RegisterRequest } from '../models/Authentication.model'
 import { Observable } from 'rxjs'
 import { Constants } from '../Constants'
+import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import { Constants } from '../Constants'
 export class AuthenticationService {
   private baseUrl: string = environment.apiUrl + '/auth'
   constructor(private http: HttpClient,
-              private readonly constants: Constants) {}
+              private readonly constants: Constants,
+              private router: Router) {}
 
   public login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseUrl}/login`, loginRequest)
@@ -29,6 +31,7 @@ export class AuthenticationService {
   public logout(): void {
     localStorage.removeItem(this.constants.TOKEN_KEY)
     localStorage.removeItem(this.constants.CURRENT_USER_KEY)
+    this.router.navigate(['/login'])
   }
 
   public isAuthenticated(): boolean {
