@@ -1,0 +1,154 @@
+.apiary-details-container {
+  width: 100%;
+}
+
+.apiary-details-title-container {
+  display: flex;
+  justify-content: start;
+  gap: 4rem;
+  align-items: center;
+  margin: 0 0 1rem 3rem;
+}
+
+.apiary-details-title-container h2 {
+  font-size: 2rem;
+  color: var(--primary-black);
+  font-weight: lighter;
+}
+
+.apiary-details-hives-button {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid #D7D7D7;
+  color: var(--primary-black);
+  padding: 0 3.5rem;
+  font-size: 1.2rem;
+}
+
+.apiary-details-main-infos-cards-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3rem;
+  gap: 1rem;
+  width: 70%;
+}
+
+.apiary-details-main-infos-cards-container mat-card {
+  background-color: transparent;
+  align-items: center;
+  width: 30%;
+}
+
+.apiary-details-main-infos-cards-container mat-card-title {
+  font-weight: bold;
+}
+
+.apiary-details-main-infos-cards-container mat-card-content {
+  margin-top: 0.5rem;
+  font-size: small;
+  color: var(--primary-grey);
+}
+
+.apiary-details-history {
+  margin: 2rem 0 0 5rem;
+  width: fit-content;
+}
+
+.apiary-details-history h2 {
+  font-size: 1.375rem;
+}
+
+.apiary-details-history-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.indicator {
+  border: 1px solid var(--primary-grey);
+}
+
+.apiary-details-history-item-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem -13px;
+  max-height: 50vh;
+  overflow-y: scroll;
+  align-items: flex-start;
+  gap: 2rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.apiary-details-history-item-banner {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.apiary-details-history-item-banner mat-icon {
+  background-color: var(--primary-white);
+}
+
+.apiary-details-history-item {
+  width: 20vw;
+}
+
+.apiary-details-history-item .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.apiary-details-history-item .title h4 {
+  margin: 0;
+}
+
+.apiary-details-history-item .title p {
+  margin: 0;
+  font-size: small;
+  color: var(--primary-grey);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 50vh;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.apiary-details-history {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding-right: 16px;
+}
+
+.dashboard-card-apiaries {
+  flex-grow: 1;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.map-container-empty {
+  height: 100%;
+  width: 100%;
+  background-color: var(--secondary-grey);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apiary-details-history-container {
+  margin-bottom: 20px;
+}

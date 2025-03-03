@@ -1,19 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HiveDetailsComponent } from './hive-details.component';
+import { ApiaryDetailsComponent } from './apiary-details.component';
 import { provideRouter } from '@angular/router';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { MockTranslateLoader } from '../../../utils/MockTranslateLoader';
 import { HttpClientModule } from '@angular/common/http';
+import {
+  TranslateLoader,
+  TranslateModule
+} from '@ngx-translate/core';
+import { MockTranslateLoader } from '../../../utils/MockTranslateLoader';
 
-describe('HiveDetailsComponent', () => {
-  let component: HiveDetailsComponent;
-  let fixture: ComponentFixture<HiveDetailsComponent>;
+describe('ApiaryDetailsComponent', () => {
+  let component: ApiaryDetailsComponent;
+  let fixture: ComponentFixture<ApiaryDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        HiveDetailsComponent,
+        ApiaryDetailsComponent,
         HttpClientModule,
         TranslateModule.forRoot({
           loader: { provide: TranslateLoader, useClass: MockTranslateLoader }
@@ -23,7 +26,7 @@ describe('HiveDetailsComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HiveDetailsComponent);
+    fixture = TestBed.createComponent(ApiaryDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

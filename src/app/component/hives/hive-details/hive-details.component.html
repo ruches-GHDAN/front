@@ -1,16 +1,16 @@
 <div class="hive-details-container">
   <div class="hive-details-title-container">
-    <h2>Ruche N°{{ hive.id }}</h2>
+    <h2>Ruche N°{{ hive?.hive?.id }}</h2>
     <button mat-flat-button class="hive-details-apiary-button"
-            routerLink="/apiaries" matTooltip="{{ 'hives.tooltips.goToApiary' | translate }}">
-	    Salut c'est le rucher
+            routerLink="/apiary/{{hive?.apiary?.id}}" matTooltip="{{ 'hives.tooltips.goToApiary' | translate }}">
+      {{ hive?.apiary?.name }}
     </button>
   </div>
 
   <div class="hive-details-main-infos-cards-container">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{hive.id}}</mat-card-title>
+        <mat-card-title>{{hive?.hive?.id}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         {{ 'hives.labels.warnings' | translate }}
@@ -19,7 +19,7 @@
 
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ hive.size }}</mat-card-title>
+        <mat-card-title>{{ hive?.hive?.size }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         {{ 'hives.labels.size' | translate }}
@@ -28,7 +28,7 @@
 
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ hive.temperature }}</mat-card-title>
+        <mat-card-title>{{ hive?.hive?.temperature }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         {{ 'hives.labels.temperature' | translate }}

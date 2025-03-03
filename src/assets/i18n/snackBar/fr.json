@@ -4,14 +4,21 @@
     "success": {
       "login": "Connexion réussie",
       "register": "Inscription réussie",
-      "logout": "Déconnexion réussie"
+      "logout": "Déconnexion réussie",
+      "addHive": "Ruche ajoutée",
+      "addApiary": "Rucher ajouté"
     },
     "error": {
       "login": "Une erreur est survenue lors de la connexion, veuillez réessayer",
       "register": "Une erreur est survenue lors de l'inscription, veuillez réessayer",
       "logout": "Une erreur est survenue lors de la déconnexion, veuillez réessayer",
       "dashboardFetching": "Aucune information n'a pu être récupérée",
-      "getApiaries": "Une erreur est survenue lors de la récupération des ruchers"
+      "getApiaries": "Une erreur est survenue lors de la récupération des ruchers",
+      "getHive": "Une erreur est survenue lors de la récupération de la ruche",
+      "noApiaryHistory": "Aucun historique n'a pu être récupéré pour ce rucher",
+      "getApiaryHistory": "Une erreur est survenue lors de la récupération de l'historique du rucher",
+      "addHive": "Une erreur est survenue lors de l'ajout de la ruche",
+      "addApiary": "Une erreur est survenue lors de l'ajout du rucher"
     }
   }
 }

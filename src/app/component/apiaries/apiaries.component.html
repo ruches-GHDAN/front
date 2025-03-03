@@ -13,11 +13,8 @@
         <th>{{ 'APIARIES.TABLE.NAME' | translate }}</th>
         <th>{{ 'APIARIES.TABLE.LATITUDE' | translate }}</th>
         <th>{{ 'APIARIES.TABLE.LONGITUDE' | translate }}</th>
-        <th>{{ 'APIARIES.TABLE.TEMPERATURE' | translate }}</th>
-<!--        <th>{{ 'APIARIES.TABLE.LOCATION' | translate }}</th>-->
-<!--        <th>{{ 'APIARIES.TABLE.HIVES_COUNT' | translate }}</th>-->
-<!--        <th>{{ 'APIARIES.TABLE.HONEY_PRODUCED' | translate }}</th>-->
-<!--        <th>{{ 'APIARIES.TABLE.ACTIVE_HIVES' | translate }}</th>-->
+        <th>{{ 'APIARIES.TABLE.HONEYQUANTITY' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.NBACTIVEHIVES' | translate }}</th>
       </tr>
       </thead>
       <tbody>
@@ -27,15 +24,12 @@
           </tr>
         } @else {
           @for (apiary of filteredApiaries; track apiary) {
-            <tr matTooltip="{{ 'APIARIES.TOOLTIPS.SEEAPIARY' | translate }}">
+            <tr matTooltip="{{ 'APIARIES.TOOLTIPS.SEEAPIARY' | translate }}" routerLink="/apiary/{{apiary.id}}">
               <td>{{ apiary.name }}</td>
-              <td>{{ apiary.latitude }}</td>
-              <td>{{ apiary.longitude }}</td>
-              <td>{{ apiary.temperature }} °C</td>
-<!--              <td>{{ apiary.location }}</td>-->
-<!--              <td>{{ apiary.hivesCount }}</td>-->
-<!--              <td>{{ apiary.honeyProduced }} kg</td>-->
-<!--              <td>{{ apiary.activeHives }}</td>-->
+              <td>{{ apiary.location.latitude }}</td>
+              <td>{{ apiary.location.longitude }}</td>
+              <td>{{ apiary.honeyQuantity }} Kg</td>
+              <td>{{ apiary.nbRucheActives }}</td>
             </tr>
           }
         }
