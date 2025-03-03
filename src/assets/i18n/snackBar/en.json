@@ -12,7 +12,9 @@
       "logout": "An error occurred during logout, please try again",
       "dashboardFetching": "No information could be retrieved",
       "getApiaries": "An error occurred while retrieving apiaries",
-      "getHive": "An error occurred while retrieving the hive"
+      "getHive": "An error occurred while retrieving the hive",
+      "noApiaryHistory": "No history could be retrieved for this apiary",
+      "getApiaryHistory": "An error occurred while retrieving the apiary history"
     }
   }
 }

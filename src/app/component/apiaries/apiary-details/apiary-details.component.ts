@@ -31,38 +31,18 @@ import { ApiaryDetails } from '../../../models/Apiary.model'
 export class ApiaryDetailsComponent implements OnInit {
   public apiaryId: string
   public apiary: ApiaryDetails | undefined
-  public apiaryHistory: ApiaryHistory[]
+  public apiaryHistory: ApiaryHistory[] | undefined
 
   public constructor(private route: ActivatedRoute,
                      private apiaryService: ApiaryService,
                      private snackBarService: SnackBarService,
                      private translateService: TranslateService) {
-    this.apiaryId = this.route.snapshot.paramMap.get('id')!;
-
-    this.apiaryHistory = [
-      {
-        date: '2021-09-02',
-        title: 'Création du rucher',
-        description: 'Le rucher a été créé avec 10 ruches',
-        idApiary: parseInt(this.apiaryId)
-      },
-      {
-        date: '2021-09-10',
-        title: 'Ajout de ruches',
-        description: 'Ajout de 5 nouvelles ruches',
-        idApiary: parseInt(this.apiaryId)
-      },
-      {
-        date: '2021-09-20',
-        title: 'Inspection',
-        description: 'Inspection du rucher, tout est en ordre',
-        idApiary: parseInt(this.apiaryId)
-      }
-    ];
+    this.apiaryId = this.route.snapshot.paramMap.get('id')!
   }
 
   public ngOnInit() {
     this.getApiaryById()
+    this.getApiaryHistory()
   }
 
   public getApiaryById() {
@@ -72,6 +52,22 @@ export class ApiaryDetailsComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching apiary', error)
+      }
+    })
+  }
+
+  public getApiaryHistory() {
+    this.apiaryService.getApiaryHistory(this.apiaryId).subscribe({
+      next: (apiaryHistory: ApiaryHistory[]) => {
+        this.apiaryHistory = apiaryHistory
+      },
+      error: (error) => {
+        if (error.status === 404) {
+          this.snackBarService.openInfoSnackBar(this.translateService.instant('snackBar.error.noApiaryHistory'))
+          return
+        }
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getApiaryHistory'))
+        console.error('Error fetching apiary history', error)
       }
     })
   }

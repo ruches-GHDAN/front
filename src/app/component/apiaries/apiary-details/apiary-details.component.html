@@ -44,15 +44,13 @@
         @for (history of apiaryHistory; let i = $index; track history)
         {
         <div class="apiary-details-history-item-banner">
-          <mat-icon>event</mat-icon>
+          <mat-icon>add</mat-icon>
           <div class="apiary-details-history-item">
             <div class="title">
               <h4>{{ history.title }}</h4>
-                <p style="color: var(--primary-grey); font-style: italic; font-size: 0.8rem;">
-                  - {{ history.date | date: 'dd/MM/yyyy' }}
-        </p>
-    </div>
-    <p style="margin: 0 !important; color: grey">{{ history.description }}</p>
+                <p style="color: var(--primary-grey); font-style: italic; font-size: 0.8rem;">- {{ history.date | date: 'dd/MM/yyyy' }}</p>
+            </div>
+	          <p style="margin: 0 !important; color: grey">{{ history.description }}</p>
           </div>
         </div>
         }
