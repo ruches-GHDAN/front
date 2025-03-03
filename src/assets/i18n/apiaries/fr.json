@@ -8,7 +8,9 @@
       "LATITUDE": "Latitude",
       "LONGITUDE": "Longitude",
       "TEMPERATURE": "Température",
-      "NO_RESULTS": "Aucun rucher ne correspond à votre recherche."
+      "NO_RESULTS": "Aucun rucher ne correspond à votre recherche.",
+      "HONEYQUANTITY": "Quantité de miel",
+      "NBACTIVEHIVES": "Nombre de ruches actives"
     },
     "DETAILS": {
       "ID": "Rucher N°",
@@ -22,7 +24,8 @@
       "TEMPERATURE": "Température"
     },
     "TOOLTIPS": {
-      "GO_TO_HIVES": "Aller à la liste des ruches"
+      "GO_TO_HIVES": "Aller à la liste des ruches",
+      "SEEAPIARY": "Voir les détails du rucher"
     },
     "DIALOG": {
       "TITLE": "Ajouter un rucher",

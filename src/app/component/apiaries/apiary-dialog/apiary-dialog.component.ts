@@ -45,10 +45,10 @@ export class ApiaryDialogComponent {
   public addApiary(): void {
     this.apiaryService.addApiary(this.addApiaryForm.value).subscribe({
       next: () => {
-        this.snackBarService.openInfoSnackBar('Apiary added')
+        this.snackBarService.openInfoSnackBar(this.translateService.instant('snackBar.success.addApiary'))
       },
       error: (error) => {
-        this.snackBarService.openErrorSnackBar('Error adding apiary')
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.addApiary'))
         console.error('Error adding apiary', error)
       }
     })

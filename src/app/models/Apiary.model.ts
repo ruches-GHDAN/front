@@ -6,6 +6,17 @@ export interface Apiary {
   temperature: number
 }
 
+export interface ApiaryByUser {
+  id: number
+  name: string
+  honeyQuantity: number
+  location: {
+    latitude: number
+    longitude: number
+  }
+  nbRucheActives: number
+}
+
 export interface ApiaryDetails {
   apiary: {
     id: number

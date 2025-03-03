@@ -4,7 +4,9 @@
     "success": {
       "login": "Login successful",
       "register": "Registration successful",
-      "logout": "Logout successful"
+      "logout": "Logout successful",
+      "addHive": "Hive added",
+      "addApiary": "Apiary added"
     },
     "error": {
       "login": "An error occurred during login, please try again",
@@ -14,7 +16,9 @@
       "getApiaries": "An error occurred while retrieving apiaries",
       "getHive": "An error occurred while retrieving the hive",
       "noApiaryHistory": "No history could be retrieved for this apiary",
-      "getApiaryHistory": "An error occurred while retrieving the apiary history"
+      "getApiaryHistory": "An error occurred while retrieving the apiary history",
+      "addHive": "An error occurred while adding the hive",
+      "addApiary": "An error occurred while adding the apiary"
     }
   }
 }

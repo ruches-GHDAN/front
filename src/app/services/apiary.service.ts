@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../Constants';
-import { Apiary, ApiaryDetails } from '../models/Apiary.model'
+import { Apiary, ApiaryByUser, ApiaryDetails } from '../models/Apiary.model'
 import { Observable } from 'rxjs'
-import { ApiaryHistory } from '../models/Apiaries.model'
+import { ApiaryHistory, HivesLocation } from '../models/Apiaries.model'
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +29,8 @@ export class ApiaryService {
     return this.http.post<string>(`${this.baseUrl}/create`, request)
   }
 
-  public getAllApiaries(): Observable<Apiary[]> {
-    return this.http.post<Apiary[]>(`${this.getUserApiariesUrl}`, null)
+  public getAllApiaries(): Observable<ApiaryByUser[]> {
+    return this.http.post<ApiaryByUser[]>(`${this.getUserApiariesUrl}`, null)
   }
 
   public getApiaryById(apiaryId: string): Observable<ApiaryDetails> {
@@ -39,5 +39,9 @@ export class ApiaryService {
 
   public getApiaryHistory(apiaryId: string): Observable<ApiaryHistory[]> {
     return this.http.post<ApiaryHistory[]>(`${this.getApiaryHistoryUrl}/${apiaryId}`, null)
+  }
+
+  public getHivesLocation(apiaryId: string): Observable<HivesLocation[]> {
+    return this.http.get<HivesLocation[]>(`${this.baseUrl}/locateHives/${apiaryId}`)
   }
 }

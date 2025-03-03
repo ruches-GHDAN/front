@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
 import { ApiaryDialogComponent } from './apiary-dialog/apiary-dialog.component'
-import { Apiary } from '../../models/Apiary.model'
+import { Apiary, ApiaryByUser } from '../../models/Apiary.model'
 import { ApiaryService } from '../../services/apiary.service'
 import { SnackBarService } from '../../services/SnackBar-service'
 import { MatTooltip } from '@angular/material/tooltip'
@@ -23,7 +23,7 @@ import { RouterLink } from '@angular/router'
 export class ApiariesComponent implements OnInit {
   searchText = ''
   public dialog = inject(MatDialog)
-  public apiaries: Apiary[] = []
+  public apiaries: ApiaryByUser[] = []
 
   public constructor(private apiaryService: ApiaryService,
                      private snackBarService: SnackBarService,
@@ -40,9 +40,8 @@ export class ApiariesComponent implements OnInit {
 
   public getAllApiaries() {
     this.apiaryService.getAllApiaries().subscribe({
-      next: (apiaries) => {
+      next: (apiaries: ApiaryByUser[]) => {
         this.apiaries = apiaries
-        console.log('Apiaries', apiaries)
       },
       error: (error) => {
         this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getApiaries'))

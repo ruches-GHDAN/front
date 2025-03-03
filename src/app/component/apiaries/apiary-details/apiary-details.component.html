@@ -36,25 +36,40 @@
     </mat-card>
   </div>
 
-  <div class="apiary-details-history">
-    <h2>{{ 'APIARIES.DETAILS.HISTORY' | translate }}</h2>
-    <div class="apiary-details-history-container">
-      <div class="indicator"></div>
-      <div class="apiary-details-history-item-container">
-        @for (history of apiaryHistory; let i = $index; track history)
-        {
-        <div class="apiary-details-history-item-banner">
-          <mat-icon>add</mat-icon>
-          <div class="apiary-details-history-item">
-            <div class="title">
-              <h4>{{ history.title }}</h4>
-                <p style="color: var(--primary-grey); font-style: italic; font-size: 0.8rem;">- {{ history.date | date: 'dd/MM/yyyy' }}</p>
-            </div>
-	          <p style="margin: 0 !important; color: grey">{{ history.description }}</p>
-          </div>
-        </div>
-        }
-      </div>
-    </div>
-  </div>
+	<div class="content-container">
+		<div class="apiary-details-history">
+			<h2>{{ 'APIARIES.DETAILS.HISTORY' | translate }}</h2>
+			<div class="apiary-details-history-container">
+				<div class="indicator"></div>
+				<div class="apiary-details-history-item-container">
+					@for (history of apiaryHistory; let i = $index; track history)
+					{
+						<div class="apiary-details-history-item-banner">
+							<mat-icon>add</mat-icon>
+							<div class="apiary-details-history-item">
+								<div class="title">
+									<h4>{{ history.title }}</h4>
+									<p style="color: var(--primary-grey); font-style: italic; font-size: 0.8rem;">- {{ history.date | date: 'dd/MM/yyyy' }}</p>
+								</div>
+								<p style="margin: 0 !important; color: grey">{{ history.description }}</p>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+		<mat-grid-list cols="2" rowHeight="480px" gutterSize="16px" class="dashboard-card-apiaries">
+			<mat-grid-tile colspan="2">
+				@if (mapData.length > 0) {
+					<div class="map-container">
+						<app-map [mapData]="mapData"/>
+					</div>
+				} @else {
+					<div class="map-container-empty">
+						{{ 'dashboard.apiaries.feed.noMapInfos' | translate }}
+					</div>
+				}
+			</mat-grid-tile>
+		</mat-grid-list>
+	</div>
 </div>

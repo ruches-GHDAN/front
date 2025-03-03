@@ -5,7 +5,7 @@ import { MatButton } from '@angular/material/button'
 import { MatFormField, MatLabel } from '@angular/material/form-field'
 import { MatInput } from '@angular/material/input'
 import { MatOption, MatSelect } from '@angular/material/select'
-import { Apiary } from '../../../models/Apiary.model'
+import { ApiaryByUser } from '../../../models/Apiary.model'
 import { ApiaryService } from '../../../services/apiary.service'
 import { TranslatePipe, TranslateService } from '@ngx-translate/core'
 import { HiveService } from '../../../services/hive.service'
@@ -34,7 +34,7 @@ import { SnackBarService } from '../../../services/SnackBar-service'
 export class HiveDialogComponent implements OnInit {
   public dialogRef = inject(MatDialog)
   public addHiveForm: FormGroup
-  public apiariesAvailable: Apiary[] = []
+  public apiariesAvailable: ApiaryByUser[] = []
 
   public constructor(private formBuilder: FormBuilder,
                      private apiaryService: ApiaryService,
@@ -56,11 +56,11 @@ export class HiveDialogComponent implements OnInit {
 
   public ngOnInit() {
     this.apiaryService.getAllApiaries().subscribe({
-      next: (apiaries) => {
+      next: (apiaries: ApiaryByUser[]) => {
         this.apiariesAvailable = apiaries
       },
       error: (error) => {
-        this.snackBarService.openErrorSnackBar('Error getting apiaries')
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getApiaries'))
         console.error('Error getting apiaries', error)
       }
     })
@@ -69,10 +69,10 @@ export class HiveDialogComponent implements OnInit {
   public addHive() {
     this.hiveService.addHive(this.addHiveForm.value).subscribe({
       next: () => {
-        this.snackBarService.openInfoSnackBar('Hive added')
+        this.snackBarService.openInfoSnackBar(this.translateService.instant('snackBar.success.addHive'))
       },
       error: (error) => {
-        this.snackBarService.openErrorSnackBar('Error adding hive')
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.addHive'))
         console.error('Error adding hive', error)
       }
     })

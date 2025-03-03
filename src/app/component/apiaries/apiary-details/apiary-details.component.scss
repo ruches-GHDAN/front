@@ -112,3 +112,43 @@
   color: var(--primary-grey);
 }
 
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 50vh;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.apiary-details-history {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding-right: 16px;
+}
+
+.dashboard-card-apiaries {
+  flex-grow: 1;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.map-container-empty {
+  height: 100%;
+  width: 100%;
+  background-color: var(--secondary-grey);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apiary-details-history-container {
+  margin-bottom: 20px;
+}
