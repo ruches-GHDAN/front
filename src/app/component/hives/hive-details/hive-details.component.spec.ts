@@ -4,6 +4,7 @@ import { HiveDetailsComponent } from './hive-details.component';
 import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { MockTranslateLoader } from '../../../utils/MockTranslateLoader';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HiveDetailsComponent', () => {
   let component: HiveDetailsComponent;
@@ -13,6 +14,7 @@ describe('HiveDetailsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         HiveDetailsComponent,
+        HttpClientModule,
         TranslateModule.forRoot({
           loader: { provide: TranslateLoader, useClass: MockTranslateLoader }
         })

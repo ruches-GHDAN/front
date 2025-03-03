@@ -3,6 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HiveDialogComponent } from './hive-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
 import {provideAnimations} from '@angular/platform-browser/animations';
+import {
+  TranslateLoader,
+  TranslateModule
+} from '@ngx-translate/core';
+import { MockTranslateLoader } from '../../../utils/MockTranslateLoader';
 
 describe('HiveDialogComponent', () => {
   let component: HiveDialogComponent;
@@ -12,7 +17,10 @@ describe('HiveDialogComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         HiveDialogComponent,
-        HttpClientModule
+        HttpClientModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: MockTranslateLoader }
+        })
       ],
       providers: [provideAnimations()]
     })
