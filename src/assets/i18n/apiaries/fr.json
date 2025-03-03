@@ -9,7 +9,13 @@
       "HIVES_COUNT": "Nombre de ruches",
       "HONEY_PRODUCED": "Miel produit",
       "ACTIVE_HIVES": "Ruches actives",
-      "NO_RESULTS": "Aucun rucher ne correspond à votre recherche."
+      "NO_RESULTS": "Aucun rucher ne correspond à votre recherche.",
+      "LATITUDE": "Latitude",
+      "LONGITUDE": "Longitude",
+      "TEMPERATURE": "Température"
+    },
+    "TOOLTIPS": {
+      "SEEAPIARY": "Voir le rucher"
     }
   }
 }

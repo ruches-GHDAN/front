@@ -16,3 +16,15 @@ export interface HiveHistory {
   description: string
   idRuche: number
 }
+
+export interface Hives {
+  id: number
+  name: string
+  apiary: string
+  createdDate: string
+  size: string
+  disease: string
+  queenYear: number
+  status: string
+  cleaning: string
+}

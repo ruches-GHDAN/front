@@ -9,7 +9,9 @@
     "error": {
       "login": "An error occurred during login, please try again",
       "register": "An error occurred during registration, please try again",
-      "logout": "An error occurred during logout, please try again"
+      "logout": "An error occurred during logout, please try again",
+      "dashboardFetching": "No information could be retrieved",
+      "getApiaries": "An error occurred while retrieving apiaries"
     }
   }
 }

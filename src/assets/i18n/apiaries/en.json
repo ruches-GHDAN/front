@@ -9,7 +9,13 @@
       "HIVES_COUNT": "Number of hives",
       "HONEY_PRODUCED": "Honey produced",
       "ACTIVE_HIVES": "Active hives",
-      "NO_RESULTS": "No apiary matches your search."
+      "NO_RESULTS": "No apiary matches your search.",
+      "LATITUDE": "Latitude",
+      "LONGITUDE": "Longitude",
+      "TEMPERATURE": "Temperature"
+    },
+    "TOOLTIPS": {
+      "SEEAPIARY": "See the apiary"
     }
   }
 }

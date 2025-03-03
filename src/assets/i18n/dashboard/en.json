@@ -1,10 +1,12 @@
 {
   "dashboard": {
+    "title": "Dashboard",
     "globalInfos": {
       "nbApiary": "Apiaries",
       "nbHives": "Hives",
       "honeyQuantity": "kg of honey collected",
-      "nbAlertes": "Alerts"
+      "nbAlertes": "Alerts",
+      "noData": "No data to display"
     },
     "apiaries": {
       "title": "My apiaries",
@@ -12,7 +14,8 @@
         "alertsTitle": "Alerts",
         "noAlertMessage": "No alert",
         "historyTitle": "History",
-        "noHistoryMessage": "No history"
+        "noHistoryMessage": "No history",
+        "noMapInfos": "No data to display on the map"
       }
     }
   }
