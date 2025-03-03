@@ -12,7 +12,9 @@
       "logout": "Une erreur est survenue lors de la déconnexion, veuillez réessayer",
       "dashboardFetching": "Aucune information n'a pu être récupérée",
       "getApiaries": "Une erreur est survenue lors de la récupération des ruchers",
-      "getHive": "Une erreur est survenue lors de la récupération de la ruche"
+      "getHive": "Une erreur est survenue lors de la récupération de la ruche",
+      "noApiaryHistory": "Aucun historique n'a pu être récupéré pour ce rucher",
+      "getApiaryHistory": "Une erreur est survenue lors de la récupération de l'historique du rucher"
     }
   }
 }

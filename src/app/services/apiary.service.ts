@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../Constants';
 import { Apiary, ApiaryDetails } from '../models/Apiary.model'
 import { Observable } from 'rxjs'
+import { ApiaryHistory } from '../models/Apiaries.model'
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs'
 export class ApiaryService {
   private baseUrl: string = environment.apiUrl + '/api/apiary'
   private getUserApiariesUrl: string = environment.apiUrl + '/api/user/apiaries'
+  private getApiaryHistoryUrl :string = environment.apiUrl + '/api/history/getHistoryByApiary'
 
   constructor(private http: HttpClient,
               private readonly constants: Constants) {}
@@ -33,5 +35,9 @@ export class ApiaryService {
 
   public getApiaryById(apiaryId: string): Observable<ApiaryDetails> {
     return this.http.get<ApiaryDetails>(`${this.baseUrl}/about/${apiaryId}`)
+  }
+
+  public getApiaryHistory(apiaryId: string): Observable<ApiaryHistory[]> {
+    return this.http.post<ApiaryHistory[]>(`${this.getApiaryHistoryUrl}/${apiaryId}`, null)
   }
 }
