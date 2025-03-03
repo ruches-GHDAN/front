@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { MatTooltip } from '@angular/material/tooltip'
 import { TranslatePipe } from '@ngx-translate/core'
 import { RouterLink } from '@angular/router'
 import { Hives } from '../../models/Hives.model'
+import { MatDialog } from '@angular/material/dialog'
+import { HiveDialogComponent } from './hive-dialog/hive-dialog.component'
 
 @Component({
   selector: 'app-hives',
@@ -17,7 +19,8 @@ import { Hives } from '../../models/Hives.model'
   styleUrls: ['./hives.component.scss']
 })
 export class HivesComponent {
-  searchText = ''
+  public searchText = ''
+  public dialog = inject(MatDialog)
 
   hives: Hives[] = [
     { id: 1, name: 'Ruche de Lavande', apiary: 'Rucher Urbain', createdDate: '15/03/2021', size: 'Grande', disease: 'Varroa', queenYear: 2021, status: 'Production', cleaning:'propre'},
@@ -43,7 +46,11 @@ export class HivesComponent {
     return this.hives.filter(hive => hive.name.toLowerCase().includes(this.searchText.toLowerCase()))
   }
 
-  addHive() {
-    console.log('Ajouter une ruche')
+  public addHive() {
+    this.dialog.open(HiveDialogComponent).afterClosed().subscribe({
+      next: () => {
+        console.log('Hive added successfully')
+      }
+    })
   }
 }
