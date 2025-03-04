@@ -8,6 +8,9 @@ import { ApiaryService } from '../../services/apiary.service';
 import {DashboardService} from "../../services/dashboard.service";
 import {forkJoin} from "rxjs";
 import { SnackBarService } from '../../services/SnackBar-service'
+import { DatePipe } from '@angular/common'
+import { MatIcon } from '@angular/material/icon'
+import { ApiariesHistory } from '../../models/Apiaries.model'
 
 @Component({
   selector: 'app-dashboard',
@@ -20,15 +23,18 @@ import { SnackBarService } from '../../services/SnackBar-service'
     MatGridList,
     MatGridTile,
     MapComponent,
-    TranslatePipe
+    TranslatePipe,
+    DatePipe,
+    MatIcon,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit {
-  isLoading: boolean = false;
+  isLoading: boolean = false
   dashboardData: any = []
-  mapData: { latitude: number, longitude: number }[] = [];
+  mapData: { latitude: number, longitude: number }[] = []
+  public apiariesHistory: ApiariesHistory[] = []
 
   constructor(private authService: AuthenticationService,
               private apiaryService: ApiaryService,
@@ -60,5 +66,19 @@ export class DashboardComponent implements OnInit {
         }
       })
     }
+    this.getUserHistory()
+  }
+
+  public getUserHistory() {
+    this.dashboardService.getUserHistory().subscribe({
+      next: (response: ApiariesHistory[]) => {
+        this.apiariesHistory = response
+        this.apiariesHistory.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      },
+      error: error => {
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.dashboardFetching'))
+        console.error('Error fetching data:', error)
+      }
+    })
   }
 }

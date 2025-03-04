@@ -20,3 +20,10 @@ export interface HivesLocation {
   latitude: number
   longitude: number
 }
+
+export interface ApiariesHistory {
+  title: string
+  description: string
+  date: string
+  apiary_id: number
+}
