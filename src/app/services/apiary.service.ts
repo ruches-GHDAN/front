@@ -49,4 +49,8 @@ export class ApiaryService {
   addHarvest(request: Harvest): Observable<any> {
     return this.http.post<any>(`${this.harvestUrl}/create`, request)
   }
+
+  public deleteApiary(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/delete/${id}`)
+  }
 }

@@ -8,6 +8,8 @@ import { ApiaryService } from '../../services/apiary.service'
 import { SnackBarService } from '../../services/SnackBar-service'
 import { MatTooltip } from '@angular/material/tooltip'
 import { RouterLink } from '@angular/router'
+import { MatIcon } from '@angular/material/icon'
+import { MatIconButton } from '@angular/material/button'
 
 @Component({
   selector: 'app-apiaries',
@@ -16,6 +18,8 @@ import { RouterLink } from '@angular/router'
     TranslatePipe,
     MatTooltip,
     RouterLink,
+    MatIcon,
+    MatIconButton,
   ],
   templateUrl: './apiaries.component.html',
   styleUrl: './apiaries.component.scss'
@@ -54,6 +58,19 @@ export class ApiariesComponent implements OnInit {
     this.dialog.open(ApiaryDialogComponent).afterClosed().subscribe({
       next: () => {
         this.getAllApiaries()
+      }
+    })
+  }
+
+  public deleteApiary(id: number) {
+    this.apiaryService.deleteApiary(id).subscribe({
+      next: () => {
+        this.getAllApiaries()
+        this.snackBarService.openInfoSnackBar(this.translateService.instant('snackBar.success.deleteApiary'))
+      },
+      error: (error: any) => {
+        this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.deleteApiary'))
+        console.error('Error deleting apiary', error)
       }
     })
   }

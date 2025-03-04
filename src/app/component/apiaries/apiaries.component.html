@@ -31,6 +31,10 @@
               <td>{{ apiary.honeyQuantity }} Kg</td>
               <td>{{ apiary.nbRucheActives }}</td>
             </tr>
+            <button mat-icon-button (click)="deleteApiary(apiary.id)"
+                    style="position: absolute; right: 10px; z-index: 1; margin-top: -2.65rem">
+              <mat-icon>delete</mat-icon>
+            </button>
           }
         }
       </tbody>
