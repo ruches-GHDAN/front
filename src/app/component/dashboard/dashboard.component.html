@@ -1,0 +1,73 @@
+@if (!isLoading) {
+  <div class="header">
+    <h1>{{ 'dashboard.title' | translate }}</h1>
+  </div>
+  <mat-grid-list cols="4" rowHeight="100px" gutterSize="12px" class="dashboard-data-container">
+    @if (dashboardData.length === 0) {
+      <div class="dashboard-data-empty">
+        {{ 'dashboard.globalInfos.noData' | translate }}
+      </div>
+    } @else {
+      @for (data of dashboardData; track data) {
+        <mat-grid-tile colspan="1">
+          <mat-card class="dashboard-card" appearance="outlined">
+            <mat-card-content>
+              <p class="dashboard-card-data">
+                {{ data.value }}
+              </p>
+            </mat-card-content>
+            <mat-card-header class="dashboard-card-header">
+              <mat-card-title class="dashboard-card-title">{{ 'dashboard.globalInfos.' + data.key | translate }}</mat-card-title>
+            </mat-card-header>
+          </mat-card>
+        </mat-grid-tile>
+      }
+    }
+  </mat-grid-list>
+  <h2> {{ 'dashboard.apiaries.title' | translate }} </h2>
+  <mat-grid-list cols="4" rowHeight="480px" gutterSize="16px" class="dashboard-card-apiaries">
+    <mat-grid-tile colspan="3">
+      @if (mapData.length > 0) {
+        <div class="map-container">
+          <app-map [mapData]="mapData"/>
+        </div>
+      } @else {
+        <div class="map-container-empty">
+          {{ 'dashboard.apiaries.feed.noMapInfos' | translate }}
+        </div>
+      }
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <div class="feed-container" style="height: 100%; width: 100%">
+        <h3> {{ 'dashboard.apiaries.feed.alertsTitle' | translate }} </h3>
+        <p> {{ 'dashboard.apiaries.feed.noAlertMessage' | translate }} </p>
+        <h3> {{ 'dashboard.apiaries.feed.historyTitle' | translate }} </h3>
+        @if (apiariesHistory.length > 0) {
+          <div class="apiary-details-history">
+            <h2>{{ 'APIARIES.DETAILS.HISTORY' | translate }}</h2>
+            <div class="apiary-details-history-container">
+              <div class="indicator"></div>
+              <div class="apiary-details-history-item-container">
+                @for (history of apiariesHistory; let i = $index; track history)
+                {
+                  <div class="apiary-details-history-item-banner">
+                    <mat-icon>add</mat-icon>
+                    <div class="apiary-details-history-item">
+                      <div class="title">
+                        <h4>{{ history.title }}</h4>
+                        <p style="color: var(--primary-grey); font-style: italic; font-size: 0.8rem;">- {{ history.date | date: 'dd/MM/yyyy' }}</p>
+                      </div>
+                      <p style="margin: 0 !important; color: grey">{{ history.description }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        } @else {
+          <p> {{ 'dashboard.apiaries.feed.noHistoryMessage' | translate }} </p>
+        }
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+}

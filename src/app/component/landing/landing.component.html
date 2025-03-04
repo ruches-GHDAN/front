@@ -1,0 +1,39 @@
+<div class="landing-container">
+  <header class="landing-header">
+    <h1>{{ 'landing.title' | translate }}</h1>
+    <p>{{ 'landing.subtitle' | translate }}</p>
+    <div class="auth-buttons">
+      <button mat-flat-button class="cta-button" routerLink="/register">
+        {{ 'landing.cta.register' | translate }}
+      </button>
+      <button mat-stroked-button class="login-button" routerLink="/login">
+        {{ 'landing.cta.login' | translate }}
+      </button>
+    </div>
+  </header>
+
+  <section class="features-section">
+    <h2>{{ 'landing.features.title' | translate }}</h2>
+    <div class="features-container">
+      <div class="feature-card">
+        <mat-icon class="feature-icon">dashboard</mat-icon>
+        <h3>{{ 'landing.features.dashboard' | translate }}</h3>
+        <p>{{ 'landing.features.dashboard_desc' | translate }}</p>
+      </div>
+      <div class="feature-card">
+        <mat-icon class="feature-icon">map</mat-icon>
+        <h3>{{ 'landing.features.map' | translate }}</h3>
+        <p>{{ 'landing.features.map_desc' | translate }}</p>
+      </div>
+      <div class="feature-card">
+        <mat-icon class="feature-icon">history</mat-icon>
+        <h3>{{ 'landing.features.history' | translate }}</h3>
+        <p>{{ 'landing.features.history_desc' | translate }}</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <p>{{ 'landing.footer' | translate }}</p>
+  </footer>
+</div>

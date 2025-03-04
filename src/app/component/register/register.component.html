@@ -1,1 +1,68 @@
-<p>register works!</p>
+<div class="register-container">
+  <div class="register-logo-container">
+    <img src="/assets/img/logo-black-bg.png" alt="logo">
+  </div>
+
+  <div class="register-form">
+    <h3>{{ 'register.title' | translate }}</h3>
+  </div>
+  <div class="stepper-container">
+    <mat-stepper [linear]="true">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>{{ 'register.labels.fillName' | translate }}</ng-template>
+          <div class="stepper-first-group">
+            <mat-form-field>
+              <mat-label>{{ 'register.labels.firstName' | translate }}</mat-label>
+              <input matInput formControlName="firstName" placeholder="{{ 'register.labels.firstName' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>{{ 'register.labels.lastName' | translate }}</mat-label>
+              <input matInput formControlName="lastName" placeholder="{{ 'register.labels.lastName' | translate }}" required>
+            </mat-form-field>
+          </div>
+          <div class="next-button">
+            <button mat-button matStepperNext [disabled]="firstFormGroup.invalid">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>{{ 'register.labels.fillLogin' | translate }}</ng-template>
+          <div class="stepper-second-group">
+            <mat-form-field>
+              <mat-label>{{ 'register.labels.email' | translate }}</mat-label>
+              <input matInput formControlName="email" placeholder="{{ 'register.labels.email' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>{{ 'register.labels.password' | translate }}</mat-label>
+              <input matInput type="password" formControlName="password" placeholder="{{ 'register.labels.password' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>{{ 'register.labels.confirmPassword' | translate }}</mat-label>
+              <input matInput type="password" formControlName="confirmPassword" placeholder="{{ 'register.labels.confirmPassword' | translate }}" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-stepper>
+  </div>
+  <div class="register-buttons">
+    <button class="register" mat-flat-button (click)="register()" [disabled]="secondFormGroup.invalid">
+      @if (isLoading) {
+        <app-loader></app-loader>
+      } @else {
+        <p>{{ 'register.buttons.register' | translate }}</p>
+      }
+    </button>
+    <p>{{ 'register.labels.login' | translate }}
+      <a [routerLink]="'/login'">{{ 'register.buttons.login' | translate }}</a>
+    </p>
+  </div>
+</div>

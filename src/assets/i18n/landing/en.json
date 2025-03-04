@@ -1,0 +1,20 @@
+{
+  "landing": {
+    "title": "Welcome to our platform",
+    "subtitle": "Manage your apiaries with ease and efficiency.",
+    "cta": {
+      "register": "Create an account",
+      "login": "Log in"
+    },
+    "features": {
+      "title": "Our Features",
+      "dashboard": "Dashboard",
+      "dashboard_desc": "View all your hives and apiaries at a glance.",
+      "map": "Interactive Map",
+      "map_desc": "Track your apiaries on an interactive map.",
+      "history": "History",
+      "history_desc": "Check the history of your hives’ events."
+    },
+    "footer": "© 2025 All rights reserved."
+  }
+}

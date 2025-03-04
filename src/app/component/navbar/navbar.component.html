@@ -1,0 +1,41 @@
+<mat-drawer-container class="container" [hasBackdrop]="false">
+  <mat-drawer class="navbar" [opened]="!isActiveRouteAuthentication()" mode="side">
+    <div class="navbar-content">
+      <div class="logo" [routerLink]="'dashboard'">
+        <img src="assets/img/logoBlackTypo.png" alt="HiveBeille Logo" style="cursor: pointer;">
+      </div>
+      <nav>
+        <ul>
+          <li [class]="isActiveRouteDashboard() ? 'active' : ''" [routerLink]="'dashboard'">
+            <mat-icon>home</mat-icon>
+            <span>{{ 'navbar.dashboard' | translate }}</span>
+          </li>
+          <li [class]="isActiveRouteHives() ? 'active' : ''" [routerLink]="'hives'">
+            <mat-icon>grid_view</mat-icon>
+            <span>{{ 'navbar.hives' | translate }}</span>
+          </li>
+          <li [class]="isActiveRouteApiaries() ? 'active' : ''" [routerLink]="'apiaries'">
+            <mat-icon>location_on</mat-icon>
+            <span>{{ 'navbar.apiaries' | translate }}</span>
+          </li>
+        </ul>
+      </nav>
+      <div class="logout">
+        @if (authenticationService.isAuthenticated()) {
+          <button mat-flat-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>{{ 'navbar.logout' | translate }}</span>
+          </button>
+        } @else {
+          <button mat-flat-button [routerLink]="'login'">
+            <mat-icon>login</mat-icon>
+            <span>{{ 'navbar.login' | translate }}</span>
+          </button>
+        }
+      </div>
+    </div>
+  </mat-drawer>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

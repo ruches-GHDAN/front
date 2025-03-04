@@ -1,0 +1,43 @@
+<div class="apiaries-container">
+  <div class="header">
+    <h1>{{ 'APIARIES.TITLE' | translate }}</h1>
+    <div class="header-actions">
+      <input type="text" [(ngModel)]="searchText" [placeholder]="'APIARIES.SEARCH_PLACEHOLDER' | translate" class="search-bar">
+      <button class="add-apiary-btn" (click)="addApiary()">{{ 'APIARIES.ADD_BUTTON' | translate }}</button>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table class="apiaries-table">
+      <thead>
+      <tr>
+        <th>{{ 'APIARIES.TABLE.NAME' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.LATITUDE' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.LONGITUDE' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.HONEYQUANTITY' | translate }}</th>
+        <th>{{ 'APIARIES.TABLE.NBACTIVEHIVES' | translate }}</th>
+      </tr>
+      </thead>
+      <tbody>
+        @if (filteredApiaries.length === 0) {
+          <tr>
+            <td colspan="4" class="no-results">{{ 'APIARIES.TABLE.NO_RESULTS' | translate }}</td>
+          </tr>
+        } @else {
+          @for (apiary of filteredApiaries; track apiary) {
+            <tr matTooltip="{{ 'APIARIES.TOOLTIPS.SEEAPIARY' | translate }}" routerLink="/apiary/{{apiary.id}}">
+              <td>{{ apiary.name }}</td>
+              <td>{{ apiary.location.latitude }}</td>
+              <td>{{ apiary.location.longitude }}</td>
+              <td>{{ apiary.honeyQuantity }} Kg</td>
+              <td>{{ apiary.nbRucheActives }}</td>
+            </tr>
+            <button mat-icon-button (click)="deleteApiary(apiary.id)"
+                    style="position: absolute; right: 10px; z-index: 1; margin-top: -2.65rem">
+              <mat-icon>delete</mat-icon>
+            </button>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

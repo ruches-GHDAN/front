@@ -1,0 +1,31 @@
+{
+  "snackBar": {
+    "action": "Close",
+    "success": {
+      "login": "Login successful",
+      "register": "Registration successful",
+      "logout": "Logout successful",
+      "addHive": "Hive added",
+      "addApiary": "Apiary added",
+      "declareHarvest": "Harvest declared",
+      "deleteApiary": "Apiary deleted",
+      "deleteHive": "Hive deleted"
+    },
+    "error": {
+      "login": "An error occurred during login, please try again",
+      "register": "An error occurred during registration, please try again",
+      "logout": "An error occurred during logout, please try again",
+      "dashboardFetching": "No information could be retrieved",
+      "getApiaries": "An error occurred while retrieving apiaries",
+      "getHive": "An error occurred while retrieving the hive",
+      "getHives": "An error occurred while retrieving hives",
+      "noApiaryHistory": "No history could be retrieved for this apiary",
+      "getApiaryHistory": "An error occurred while retrieving the apiary history",
+      "addHive": "An error occurred while adding the hive",
+      "addApiary": "An error occurred while adding the apiary",
+      "declareHarvest": "An error occurred while declaring the harvest",
+      "deleteApiary": "An error occurred while deleting the apiary",
+      "deleteHive": "An error occurred while deleting the hive"
+    }
+  }
+}

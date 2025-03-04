@@ -1,0 +1,31 @@
+{
+  "hives": {
+    "labels": {
+      "warnings": "Alertes",
+      "size": "Taille (nombre d'abeille)",
+      "temperature": "Température",
+      "history": "Historique"
+    },
+    "tooltips": {
+      "hive": "Afficher les details de cette ruche",
+      "goToApiary": "Aller au rucher"
+    },
+    "dialog": {
+      "title": "Ajouter une ruche",
+      "subtitle": "Veuillez renseigner les informations suivantes pour ajouter une ruche.",
+      "registration": "Référence",
+      "status": "Statut",
+      "size": "Taille de la ruche",
+      "race": "Race des abeilles",
+      "queenYear": "Année de la reine",
+      "temp": "Température",
+      "lat": "Latitude",
+      "long": "Longitude",
+      "apiary_id": "ID du rucher",
+      "buttons": {
+        "cancel": "Annuler",
+        "save": "Enregistrer"
+      }
+    }
+  }
+}

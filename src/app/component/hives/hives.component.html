@@ -1,0 +1,52 @@
+<div class="hives-container">
+  <div class="header">
+    <h1>Ruches</h1>
+    <div class="header-actions">
+      <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une ruche" class="search-bar">
+      <button class="add-hive-btn" (click)="addHive()">Ajouter une ruche</button>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="hives-table">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Rucher</th>
+        <th>Date d'installation</th>
+        <th>Taille</th>
+        <th>Maladie</th>
+        <th>Année de la Reine</th>
+        <th>Statut</th>
+      </tr>
+      </thead>
+      <tbody>
+        @if (filteredHives.length === 0) {
+          <tr>
+            <td colspan="8" class="no-results">Aucune ruche ne correspond à votre recherche.</td>
+          </tr>
+        } @else {
+          @for (hive of filteredHives; track hive) {
+            <tr matTooltip="{{ 'hives.tooltips.hive' | translate }}" routerLink="/hive/{{hive.id}}">
+              <td>{{ hive.HiveRegistration }}</td>
+              <td>{{ hive.ApiaryName }}</td>
+              <td>{{ hive.InstallDate | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ hive.HiveSize }}</td>
+              <td>{{ hive.Disease ? hive.Disease : 'aucune maladie détectée'}}</td>
+              <td>{{ hive.QueenYear }}</td>
+              <td>
+                <button [class.active]="hive.Status === 'in_use'" [class.inactive]="hive.Status !== 'in_use'">
+                  {{ hive.Status }}
+                </button>
+              </td>
+            </tr>
+            <button mat-icon-button (click)="deleteHive(hive.id)"
+                    style="position: absolute; right: 5px; z-index: 1; margin-top: -3.2rem">
+              <mat-icon>delete</mat-icon>
+            </button>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

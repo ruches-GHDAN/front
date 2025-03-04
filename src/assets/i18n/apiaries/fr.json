@@ -1,0 +1,50 @@
+{
+  "APIARIES": {
+    "TITLE": "Ruchers",
+    "SEARCH_PLACEHOLDER": "Rechercher un rucher",
+    "ADD_BUTTON": "Ajouter un rucher",
+    "TABLE": {
+      "NAME": "Nom",
+      "LATITUDE": "Latitude",
+      "LONGITUDE": "Longitude",
+      "TEMPERATURE": "Température",
+      "NO_RESULTS": "Aucun rucher ne correspond à votre recherche.",
+      "HONEYQUANTITY": "Quantité de miel",
+      "NBACTIVEHIVES": "Nombre de ruches actives"
+    },
+    "DETAILS": {
+      "ID": "Rucher N°",
+      "NAME": "Nom du rucher",
+      "LOCATION": "Localisation",
+      "HIVES_COUNT": "Nombre de ruches",
+      "CREATION_DATE": "Date de création",
+      "STATUS": "Statut",
+      "HISTORY": "Historique",
+      "GO_TO_HIVES": "Voir les ruches",
+      "TEMPERATURE": "Température",
+      "HARVEST": "Déclarer une récolte",
+      "HONEY_QUANTITY": "Quantité de miel"
+    },
+    "TOOLTIPS": {
+      "GO_TO_HIVES": "Aller à la liste des ruches",
+      "SEEAPIARY": "Voir les détails du rucher"
+    },
+    "DIALOG": {
+      "TITLE": "Ajouter un rucher",
+      "SUBTITLE": "Veuillez renseigner les informations suivantes pour ajouter un rucher.",
+      "NAME": "Nom du rucher",
+      "LAT": "Latitude",
+      "LONG": "Longitude",
+      "TEMP": "Température",
+      "HARVEST": {
+        "TITLE": "Déclarer une récolte",
+        "DATE": "Date de la récolte",
+        "QUANTITY": "Quantité récoltée (en Kg)"
+      },
+      "BUTTONS": {
+        "OK": "Enregistrer",
+        "NO": "Annuler"
+      }
+    }
+  }
+}

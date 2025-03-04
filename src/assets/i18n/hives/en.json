@@ -1,0 +1,31 @@
+{
+  "hives": {
+    "labels": {
+      "warnings": "Warnings",
+      "size": "Size (number of bees)",
+      "temperature": "Temperature",
+      "history": "History"
+    },
+    "tooltips": {
+      "hive": "Show details of this hive",
+      "goToApiary": "Go to apiary"
+    },
+    "dialog": {
+      "title": "Add a hive",
+      "subtitle": "Please fill in the following information to add a hive.",
+      "registration": "Reference",
+      "status": "Status",
+      "size": "Hive size",
+      "race": "Bees race",
+      "queenYear": "Queen year",
+      "temp": "Temperature",
+      "lat": "Latitude",
+      "long": "Longitude",
+      "apiary_id": "Apiary ID",
+      "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    }
+  }
+}
