@@ -11,7 +11,7 @@ import {ApiaryDetailsComponent} from './component/apiaries/apiary-details/apiary
 import { AuthGuard } from './services/auth.guard'
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'landing', component: LandingComponent },

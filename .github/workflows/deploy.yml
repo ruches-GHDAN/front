@@ -6,13 +6,10 @@ on:
       - main
     types:
       - closed
-  push:
-    branches:
-      - 18-deploiement
 
 jobs:
   build-and-deploy:
-#    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
