@@ -1,0 +1,20 @@
+{
+  "landing": {
+    "title": "Bienvenue sur notre plateforme",
+    "subtitle": "Gérez vos ruchers en toute simplicité et efficacité.",
+    "cta": {
+      "register": "Créer un compte",
+      "login": "Se connecter"
+    },
+    "features": {
+      "title": "Nos fonctionnalités",
+      "dashboard": "Tableau de bord",
+      "dashboard_desc": "Visualisez toutes vos ruches et ruchers en un coup d'œil.",
+      "map": "Carte interactive",
+      "map_desc": "Suivez vos ruchers sur une carte interactive.",
+      "history": "Historique",
+      "history_desc": "Consultez l'historique des événements de vos ruches."
+    },
+    "footer": "© 2025 Tous droits réservés."
+  }
+}
