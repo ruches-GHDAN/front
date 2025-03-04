@@ -45,7 +45,6 @@ import { Harvest } from '../../../../models/Apiaries.model'
   styleUrl: './declare-harvest-dialog.component.scss'
 })
 export class DeclareHarvestDialogComponent {
-  // @Input() public apiaryId!: number
   public createHarvestForm: FormGroup
 
   public constructor(private formBuilder: FormBuilder,
@@ -57,7 +56,6 @@ export class DeclareHarvestDialogComponent {
       date: ['', Validators.required],
       quantity: ['', Validators.required]
     })
-    console.log(data)
   }
 
   public addAHarvest() {
