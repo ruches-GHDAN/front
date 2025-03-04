@@ -30,7 +30,7 @@ export class NavbarComponent {
               private readonly translateService: TranslateService) {}
 
   public isActiveRouteAuthentication(): boolean {
-    return this.router.url === '/login' || this.router.url === '/register'
+    return this.router.url === '/login' || this.router.url === '/register' || this.router.url === '/landing'
   }
 
   public isActiveRouteHives(): boolean {
