@@ -1,0 +1,43 @@
+name: Deploy Front on Server
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  build-and-deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Checkout du repo
+        uses: actions/checkout@v4
+
+
+      - name: 🔑 Configuration SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+          ssh-keyscan -H 148.113.201.181 >> ~/.ssh/known_hosts
+
+
+      - name: 🔍 Test SSH connection
+        run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@148.113.201.181 "echo 'Connexion SSH OK'"
+
+
+      - name: 📤 Déploiement sur le serveur
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@148.113.201.181 << 'EOF'
+          cd /var/www/hivebeille/front
+          git fetch --all
+          git reset --hard origin/develop
+          git pull origin develop
+          npm install
+          npm run build --configuration=production
+          EOF

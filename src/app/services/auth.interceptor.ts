@@ -1,9 +1,9 @@
 import { HttpErrorResponse, HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '../environments/environments'
 import { Constants } from '../Constants'
 import { Router } from '@angular/router'
+import { environment } from '../../environments/environment';
 
 export function AuthInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
   const constants: Constants = new Constants()
