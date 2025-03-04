@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://127.0.0.1:80'
+  production: true,
+  apiUrl: 'https://back-production-7fc5.up.railway.app/'
 }
