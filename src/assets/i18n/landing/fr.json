@@ -1,0 +1,24 @@
+{
+  "landing": {
+    "title": "Bienvenue sur notre plateforme",
+    "subtitle": "Gérez vos ruchers en toute simplicité et efficacité.",
+    "cta": "Créer un compte",
+    "features": {
+      "title": "Nos fonctionnalités",
+      "dashboard": "Tableau de bord",
+      "dashboard_desc": "Visualisez toutes vos ruches et ruchers en un coup d'œil.",
+      "map": "Carte interactive",
+      "map_desc": "Suivez vos ruchers sur une carte interactive.",
+      "history": "Historique",
+      "history_desc": "Consultez l'historique des événements de vos ruches."
+    },
+    "testimonials": {
+      "title": "Ce que disent nos utilisateurs",
+      "user1": "Grâce à cette plateforme, je peux enfin suivre l'évolution de mes ruches en toute simplicité.",
+      "name1": "Jean Dupont, Apiculteur",
+      "user2": "Une interface intuitive et des outils pratiques. Je recommande !",
+      "name2": "Sophie Martin, Passionnée d'abeilles"
+    },
+    "footer": "© 2025 Tous droits réservés."
+  }
+}

@@ -30,7 +30,8 @@ export class MultipleTransLoaderHttp implements TranslateLoader {
       this.http.get(`./assets/i18n/hives/${this.currentLang}.json`),
       this.http.get(`./assets/i18n/navbar/${this.currentLang}.json`),
       this.http.get(`./assets/i18n/apiaries/${this.currentLang}.json`),
-      this.http.get(`./assets/i18n/dashboard/${this.currentLang}.json`)
+      this.http.get(`./assets/i18n/dashboard/${this.currentLang}.json`),
+      this.http.get(`./assets/i18n/landing/${this.currentLang}.json`)
     ]).pipe(
       map((translations) => {
         return Object.assign({}, ...translations)

@@ -1,0 +1,24 @@
+{
+  "landing": {
+    "title": "Welcome to our platform",
+    "subtitle": "Manage your apiaries with ease and efficiency.",
+    "cta": "Create an account",
+    "features": {
+      "title": "Our Features",
+      "dashboard": "Dashboard",
+      "dashboard_desc": "View all your hives and apiaries at a glance.",
+      "map": "Interactive Map",
+      "map_desc": "Track your apiaries on an interactive map.",
+      "history": "History",
+      "history_desc": "Check the history of your hives’ events."
+    },
+    "testimonials": {
+      "title": "What our users say",
+      "user1": "Thanks to this platform, I can finally track my hives' progress easily.",
+      "name1": "John Doe, Beekeeper",
+      "user2": "An intuitive interface with practical tools. I highly recommend it!",
+      "name2": "Sophie Martin, Bee Enthusiast"
+    },
+    "footer": "© 2025 All rights reserved."
+  }
+}
