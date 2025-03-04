@@ -6,7 +6,8 @@
       "register": "Inscription réussie",
       "logout": "Déconnexion réussie",
       "addHive": "Ruche ajoutée",
-      "addApiary": "Rucher ajouté"
+      "addApiary": "Rucher ajouté",
+      "declareHarvest": "Récolte déclarée"
     },
     "error": {
       "login": "Une erreur est survenue lors de la connexion, veuillez réessayer",
@@ -18,7 +19,8 @@
       "noApiaryHistory": "Aucun historique n'a pu être récupéré pour ce rucher",
       "getApiaryHistory": "Une erreur est survenue lors de la récupération de l'historique du rucher",
       "addHive": "Une erreur est survenue lors de l'ajout de la ruche",
-      "addApiary": "Une erreur est survenue lors de l'ajout du rucher"
+      "addApiary": "Une erreur est survenue lors de l'ajout du rucher",
+      "declareHarvest": "Une erreur est survenue lors de la déclaration de la récolte"
     }
   }
 }

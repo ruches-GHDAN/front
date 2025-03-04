@@ -27,3 +27,9 @@ export interface ApiariesHistory {
   date: string
   apiary_id: number
 }
+
+export interface Harvest {
+  date: string
+  quantity: number
+  apiary_id: number
+}

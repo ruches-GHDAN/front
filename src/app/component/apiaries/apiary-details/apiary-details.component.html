@@ -5,6 +5,7 @@
             routerLink="/hives" matTooltip="{{ 'APIARIES.TOOLTIPS.GO_TO_HIVES' | translate }}">
       {{ 'APIARIES.DETAILS.GO_TO_HIVES' | translate }}
     </button>
+	  <button mat-flat-button (click)="declareHarvest()">{{ 'APIARIES.DETAILS.HARVEST' | translate}}</button>
   </div>
 
   <div class="apiary-details-main-infos-cards-container">
@@ -28,12 +29,21 @@
 
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ apiary?.nbHives?.original?.nbHives }}</mat-card-title>
+        <mat-card-title>{{ apiary?.nbHives }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         {{ 'APIARIES.DETAILS.HIVES_COUNT' | translate }}
       </mat-card-content>
     </mat-card>
+
+	  <mat-card>
+		  <mat-card-header>
+			  <mat-card-title>{{ apiary?.honeyQuantity }}</mat-card-title>
+		  </mat-card-header>
+		  <mat-card-content>
+			  {{ 'APIARIES.DETAILS.HONEY_QUANTITY' | translate }}
+		  </mat-card-content>
+	  </mat-card>
   </div>
 	<div class="content-container">
 		<div class="apiary-details-history">

@@ -21,7 +21,9 @@
       "STATUS": "Statut",
       "HISTORY": "Historique",
       "GO_TO_HIVES": "Voir les ruches",
-      "TEMPERATURE": "Température"
+      "TEMPERATURE": "Température",
+      "HARVEST": "Déclarer une récolte",
+      "HONEY_QUANTITY": "Quantité de miel"
     },
     "TOOLTIPS": {
       "GO_TO_HIVES": "Aller à la liste des ruches",
@@ -34,6 +36,11 @@
       "LAT": "Latitude",
       "LONG": "Longitude",
       "TEMP": "Température",
+      "HARVEST": {
+        "TITLE": "Déclarer une récolte",
+        "DATE": "Date de la récolte",
+        "QUANTITY": "Quantité récoltée (en Kg)"
+      },
       "BUTTONS": {
         "OK": "Enregistrer",
         "NO": "Annuler"
