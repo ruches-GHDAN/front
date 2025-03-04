@@ -28,11 +28,6 @@ export interface ApiaryDetails {
     created_at: string,
     updated_at: string
   },
-  nbHives: {
-    headers: {},
-    original: {
-      nbHives: number
-    },
-    exception: string
-  }
+  nbHives: number,
+  honeyQuantity: number
 }

@@ -9,7 +9,8 @@
   --primary-black: #191000;
   --mat-sys-background: var(--primary-white);
   @include mat.dialog-overrides((
-    container-color: var(--primary-white)
+    container-color: var(--primary-white),
+    container-min-width: 600px
   ));
 }
 

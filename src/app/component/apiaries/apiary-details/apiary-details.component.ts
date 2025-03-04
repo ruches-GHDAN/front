@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
@@ -12,6 +12,8 @@ import { SnackBarService } from '../../../services/SnackBar-service'
 import { ApiaryDetails } from '../../../models/Apiary.model'
 import { MapComponent } from '../../map/map.component'
 import { MatGridList, MatGridTile } from '@angular/material/grid-list'
+import { MatDialog } from '@angular/material/dialog'
+import { DeclareHarvestDialogComponent } from './declare-harvest-dialog/declare-harvest-dialog.component'
 
 @Component({
   selector: 'app-apiary-details',
@@ -38,6 +40,7 @@ export class ApiaryDetailsComponent implements OnInit {
   public apiary: ApiaryDetails | undefined
   public apiaryHistory: ApiaryHistory[] | undefined
   public mapData: { latitude: number, longitude: number }[] = [];
+  public dialog = inject(MatDialog)
 
   public constructor(private route: ActivatedRoute,
                      private apiaryService: ApiaryService,
@@ -87,6 +90,18 @@ export class ApiaryDetailsComponent implements OnInit {
       error: (error: any) => {
         this.snackBarService.openErrorSnackBar(this.translateService.instant('snackBar.error.getHivesLocation'))
         console.error('Error fetching hives location', error)
+      }
+    })
+  }
+
+  public declareHarvest() {
+    this.dialog.open(DeclareHarvestDialogComponent, {
+      data:{
+        apiaryId: this.apiaryId
+      }}
+      ).afterClosed().subscribe({
+      next: () => {
+        this.getApiaryById()
       }
     })
   }

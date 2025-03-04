@@ -4,13 +4,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../Constants';
 import { Apiary, ApiaryByUser, ApiaryDetails } from '../models/Apiary.model'
 import { Observable } from 'rxjs'
-import { ApiaryHistory, HivesLocation } from '../models/Apiaries.model'
+import { ApiaryHistory, Harvest, HivesLocation } from '../models/Apiaries.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiaryService {
   private baseUrl: string = environment.apiUrl + '/api/apiary'
+  private harvestUrl: string = environment.apiUrl + '/api/harvest'
   private getUserApiariesUrl: string = environment.apiUrl + '/api/user/apiaries'
   private getApiaryHistoryUrl :string = environment.apiUrl + '/api/history/getHistoryByApiary'
 
@@ -43,5 +44,9 @@ export class ApiaryService {
 
   public getHivesLocation(apiaryId: string): Observable<HivesLocation[]> {
     return this.http.get<HivesLocation[]>(`${this.baseUrl}/locateHives/${apiaryId}`)
+  }
+
+  addHarvest(request: Harvest): Observable<any> {
+    return this.http.post<any>(`${this.harvestUrl}/create`, request)
   }
 }

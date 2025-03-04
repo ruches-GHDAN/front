@@ -21,7 +21,9 @@
       "STATUS": "Status",
       "HISTORY": "History",
       "GO_TO_HIVES": "See the hives",
-      "TEMPERATURE": "Temperature"
+      "TEMPERATURE": "Temperature",
+      "HARVEST": "Declare a harvest",
+      "HONEY_QUANTITY": "Honey quantity"
     },
     "TOOLTIPS": {
       "GO_TO_HIVES": "Go to the hives list",
@@ -34,6 +36,11 @@
       "LAT": "Latitude",
       "LONG": "Longitude",
       "TEMP": "Temperature",
+      "HARVEST": {
+        "TITLE": "Declare a harvest",
+        "DATE": "Harvest date",
+        "QUANTITY": "Quantity harvested (in Kg)"
+      },
       "BUTTONS": {
         "OK": "Save",
         "NO": "Cancel"
