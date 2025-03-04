@@ -7,7 +7,9 @@
       "logout": "Déconnexion réussie",
       "addHive": "Ruche ajoutée",
       "addApiary": "Rucher ajouté",
-      "declareHarvest": "Récolte déclarée"
+      "declareHarvest": "Récolte déclarée",
+      "deleteApiary": "Rucher supprimé",
+      "deleteHive": "Ruche supprimée"
     },
     "error": {
       "login": "Une erreur est survenue lors de la connexion, veuillez réessayer",
@@ -16,11 +18,14 @@
       "dashboardFetching": "Aucune information n'a pu être récupérée",
       "getApiaries": "Une erreur est survenue lors de la récupération des ruchers",
       "getHive": "Une erreur est survenue lors de la récupération de la ruche",
+      "getHives": "Une erreur est survenue lors de la récupération des ruches",
       "noApiaryHistory": "Aucun historique n'a pu être récupéré pour ce rucher",
       "getApiaryHistory": "Une erreur est survenue lors de la récupération de l'historique du rucher",
       "addHive": "Une erreur est survenue lors de l'ajout de la ruche",
       "addApiary": "Une erreur est survenue lors de l'ajout du rucher",
-      "declareHarvest": "Une erreur est survenue lors de la déclaration de la récolte"
+      "declareHarvest": "Une erreur est survenue lors de la déclaration de la récolte",
+      "deleteApiary": "Une erreur est survenue lors de la suppression du rucher",
+      "deleteHive": "Une erreur est survenue lors de la suppression de la ruche"
     }
   }
 }

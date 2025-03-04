@@ -25,4 +25,8 @@ export class HiveService {
   public addHive(request: Hives):Observable<Hives> {
     return this.http.post<Hives>(`${this.baseUrl}/create`, request)
   }
+
+  public deleteHive(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete/${id}`)
+  }
 }
